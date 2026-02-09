@@ -10,7 +10,7 @@ export default function CallForAction() {
           container--padding
           py-10 sm:py-14 lg:py-16
           grid grid-cols-1 lg:grid-cols-2
-          items-center
+          justify-items-center items-center
           gap-0 lg:gap-0
         "
       >
@@ -42,7 +42,9 @@ export default function CallForAction() {
               opacity-95
             "
           >
-           Whether you’re just starting out or already love caring for plants, our Indoor Smart Gardening System supports healthier growth while turning everyday gardening into a relaxing and rewarding experience.
+            Whether you’re just starting out or already love caring for plants,
+            our Indoor Smart Gardening System supports healthier growth while
+            turning everyday gardening into a relaxing and rewarding experience.
           </p>
 
           <button
@@ -54,7 +56,10 @@ export default function CallForAction() {
               px-5 sm:px-7 md:px-8
               py-2 sm:py-2.5 md:py-3
               text-sm sm:text-base md:text-lg
-              max-w-[220px] sm:max-w-none
+              max-w-[130px]
+            sm:max-w-[240px]
+            md:max-w-[258px]
+            lg:max-w-[260px]
             "
           >
             Get Started

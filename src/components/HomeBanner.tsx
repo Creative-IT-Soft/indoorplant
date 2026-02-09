@@ -34,12 +34,12 @@ export default function HomeBanner() {
       name={ROUTES.HOME}
       className="
         relative flex flex-col md:flex-row
-        justify-between items-stretch
+        justify-between
         bg-[#000000]
         container--padding
         overflow-hidden
-        pt-[56px] md:pt-[72px] lg:pt-[84px]
-        min-h-[100svh]
+        pt-[56px] pb-[50px] md:pt-[72px] lg:pt-[84px]
+        min-h-[60svh]
       "
     >
       {/* Texture Overlay */}
@@ -103,8 +103,9 @@ export default function HomeBanner() {
 
             // sizing (mobile -> desktop)
             w-full max-w-[190px]
-            sm:max-w-[280px]
-            md:max-w-[300px]
+            sm:max-w-[240px]
+            md:max-w-[258px]
+            lg:max-w-[260px]
             px-6 sm:px-10 md:px-12
             py-3 sm:py-4
             text-base sm:text-lg md:text-xl
