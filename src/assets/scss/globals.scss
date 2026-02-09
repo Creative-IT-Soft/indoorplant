@@ -170,3 +170,341 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ================================
+   CIS Footer
+   ================================ */
+
+.cis-footer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sky behind plant */
+.cis-footer__sky {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  z-index: 0;
+}
+
+html.dark .cis-footer__sky {
+  background: #000;
+}
+
+/* ================================
+   STAGE (Desktop scene)
+   ================================ */
+
+.cis-footer__stage {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+
+  /* Desktop scene height (keeps bottom strip visible) */
+  height: clamp(680px, 78vh, 860px);
+
+  overflow: hidden;
+}
+
+/* Plant grounded at stage bottom (behind panels) */
+.cis-footer__plant {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
+
+  width: clamp(320px, 36vw, 430px);
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* ================================
+   GRID (Desktop: grounded at bottom)
+   ================================ */
+
+.cis-footer__grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3; /* above plant */
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  align-items: end;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr minmax(240px, 360px) 1fr;
+  }
+}
+
+.cis-footer__spacer {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+/* ================================
+   PANELS (Desktop)
+   ================================ */
+
+.cis-footer__panel {
+  background: rgba(12, 15, 25, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  color: #fff;
+
+  padding: 34px 54px 28px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Curves */
+.cis-footer__panel--left {
+  border-radius: 0 220px 0 0;
+}
+
+.cis-footer__panel--right {
+  border-radius: 220px 0 0 0;
+}
+
+/* ✅ Fix #1: force BOTH panels same height on desktop (no content mismatch) */
+@media (min-width: 768px) {
+  .cis-footer__grid {
+    align-items: stretch; /* stretch items to same height */
+  }
+
+  .cis-footer__panel {
+    height: 440px; /* choose your exact visual height */
+    min-height: 440px;
+  }
+}
+
+/* ================================
+   LEFT CONTENT
+   ================================ */
+
+.cis-footer__text {
+  margin: 0 0 18px 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 60ch;
+}
+
+.cis-footer__follow {
+  margin: 18px 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cis-footer__social {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ================================
+   RIGHT CONTENT (aligned)
+   ================================ */
+
+.cis-footer__right-inner {
+  padding-left: clamp(0px, 6vw, 72px);
+
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
+}
+
+.cis-footer__right-title {
+  margin: 0 0 16px 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cis-footer__office {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cis-footer__office > div {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  column-gap: 12px;
+  align-items: start;
+}
+
+.cis-footer__office > div p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ================================
+   Bottom strip (always visible)
+   ================================ */
+
+.cis-footer__bottom {
+  position: relative;
+  z-index: 2;
+  background: #0c0f19;
+  padding: 18px 0 20px;
+}
+
+.cis-footer__divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  width: min(1320px, calc(100% - 64px));
+  margin: 0 auto 14px;
+
+  @media (max-width: 767px) {
+    width: calc(100% - 32px);
+  }
+}
+
+.cis-footer__copyright {
+  width: min(1320px, calc(100% - 64px));
+  margin: 0 auto;
+  text-align: center;
+
+  @media (max-width: 767px) {
+    width: calc(100% - 32px);
+  }
+
+  p {
+    margin: 4px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  a {
+    color: #9ceffe;
+  }
+}
+
+/* ================================
+   ✅ Fix #2: Tablet & below (<=1024px)
+   Stack layout:
+   video (capsule, max 410px)
+   RIGHT panel full width (no curve)
+   LEFT panel full width (no curve)
+   bottom strip
+   ================================ */
+
+@media (max-width: 1024px) {
+  /* stage becomes normal flow */
+  .cis-footer__stage {
+    height: auto;
+    overflow: visible;
+    padding: 0;
+    background: #fff;
+  }
+
+  /* ================================
+     Plant (capsule container)
+     ================================ */
+  .cis-footer__plant {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+
+    width: 100%;
+    max-width: 410px;      /* ✅ cap size */
+    margin: 24px auto 12px;
+
+    z-index: 1;
+    pointer-events: none;
+
+    /* capsule */
+    background: rgba(12, 15, 25, 0.06);
+    border: 1px solid rgba(12, 15, 25, 0.10);
+    border-radius: 999px;
+    padding: 22px 18px 0;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
+
+    overflow: hidden;
+  }
+
+  .cis-footer__plant video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Dark mode capsule */
+  html.dark .cis-footer__plant {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  }
+
+  /* ================================
+     Grid becomes stacked flow
+     ================================ */
+  .cis-footer__grid {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+
+    align-items: stretch;
+  }
+
+  .cis-footer__spacer {
+    display: none !important;
+  }
+
+  /* ================================
+     Panels full width, no curves
+     ================================ */
+  .cis-footer__panel {
+    width: 100%;
+    height: auto !important;
+    min-height: auto !important;
+    border-radius: 0 !important;
+  }
+
+  /* RIGHT panel first */
+  .cis-footer__panel--right {
+    order: 1;
+  }
+
+  /* LEFT panel second */
+  .cis-footer__panel--left {
+    order: 2;
+  }
+
+  /* Right panel inner spacing reset */
+  .cis-footer__right-inner {
+    padding-left: 0;
+  }
+
+  /* ================================
+     Bottom strip unchanged
+     ================================ */
+  .cis-footer__bottom {
+    width: 100%;
+  }
+}

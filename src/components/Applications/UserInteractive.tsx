@@ -12,12 +12,12 @@ export default function UserInteractive() {
           py-10 sm:py-14 lg:py-16
           grid grid-cols-1 lg:grid-cols-2
           items-center
-          gap-10 lg:gap-14
+          gap-0 lg:gap-0
         "
       >
         {/* IMAGE */}
         <div
-          className="min-w-0 w-full flex justify-center lg:justify-start"
+          className="min-w-0 w-full flex justify-center lg:justify-center"
           data-aos="fade-right"
           data-aos-duration="700"
         >
@@ -26,7 +26,7 @@ export default function UserInteractive() {
               w-full max-w-full
               sm:max-w-[560px]
               md:max-w-[640px]
-              lg:max-w-[560px]
+              lg:max-w-[520px]
               xl:max-w-[680px]
               transition-transform duration-300 ease-in-out
               hover:scale-[1.02] md:hover:scale-[1.05]

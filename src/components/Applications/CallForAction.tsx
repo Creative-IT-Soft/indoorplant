@@ -11,7 +11,7 @@ export default function CallForAction() {
           py-10 sm:py-14 lg:py-16
           grid grid-cols-1 lg:grid-cols-2
           items-center
-          gap-10 lg:gap-14
+          gap-0 lg:gap-0
         "
       >
         {/* TEXT CONTENT */}
@@ -28,7 +28,7 @@ export default function CallForAction() {
               tracking-tight
             "
           >
-            Let’s Grow Healthier Plants Together
+            Gardening, Made More Peaceful And Relaxing.
           </h1>
 
           <p
@@ -42,10 +42,7 @@ export default function CallForAction() {
               opacity-95
             "
           >
-            Curious about indoor growing or planning a planting project? Connect
-            with our team to learn how the Indoor Smart Gardening System can
-            support healthier plant growth—from homes and schools to community
-            initiatives.
+           Whether you’re just starting out or already love caring for plants, our Indoor Smart Gardening System supports healthier growth while turning everyday gardening into a relaxing and rewarding experience.
           </p>
 
           <button

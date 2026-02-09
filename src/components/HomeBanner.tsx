@@ -46,7 +46,7 @@ export default function HomeBanner() {
       <div
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
-          backgroundImage: "url('/assets/textures/texture.jpeg')",
+          backgroundImage: "url('/assets/textures/texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -76,7 +76,7 @@ export default function HomeBanner() {
           data-aos="fade-up"
           data-aos-duration="500"
         >
-          Growing The Future, Indoors
+          Grow Calm. Grow Green. Indoors.
         </h1>
 
         <p
@@ -88,10 +88,7 @@ export default function HomeBanner() {
           data-aos="fade-up"
           data-aos-duration="550"
         >
-          Healthy plants don’t happen by chance. Our Indoor Smart Gardening
-          System creates a safe, controlled space where young plants receive the
-          right care—light, water, air, and nutrients—every day, right from the
-          start.
+          Turn everyday moments into peaceful gardening rituals. Our Indoor Smart Gardening System lets you nurture thriving plants from the comfort of your home—bringing relaxation, fresh life, and a deeper connection to nature into your space.
         </p>
 
         {/* ✅ RESPONSIVE BUTTON (no huge mobile) */}

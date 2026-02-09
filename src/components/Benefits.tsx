@@ -13,31 +13,31 @@ export default function Benefits() {
       title: "Controlled Growing Environment",
       subtitle:
         "Plants grow in a stable indoor climate with balanced light, airflow, humidity, and temperature—reducing stress and improving early-stage survival.",
-      image: "/assets/images/01.png",
+      image: "/assets/images/cinematic/10.webp",
     },
     {
-      title: "Automated Water & Nutrient Care",
+      title: "Manual Water & Lighting control",
       subtitle:
-        "Smart watering and nutrient delivery helps avoid overwatering or dryness, ensuring plants receive consistent care every day with less manual effort.",
-      image: "/assets/images/02.png",
+        "Controlling lighting and water  delivery helps avoid overwatering or dryness with consistent light, ensuring plants receive consistent care every day with less manual effort.",
+      image: "/assets/images/cinematic/1.webp",
     },
     {
-      title: "Monitoring & Early Alerts",
+      title: "Robust Body with Wide Base",
       subtitle:
-        "Built-in monitoring helps detect issues early—like dryness, unusual conditions, or plant stress—so action can be taken before damage spreads.",
-      image: "/assets/images/03.png",
+        "Designed with a robust body and wide base, the structure offers superior stability and long-term durability.",
+      image: "/assets/images/cinematic/3.webp",
     },
     {
       title: "Beginner-Friendly & Easy to Maintain",
       subtitle:
         "Designed for everyone—whether you're new to planting or experienced. The system simplifies daily care and provides clear guidance for better results.",
-      image: "/assets/images/01.png",
+      image: "/assets/images/cinematic/5.webp",
     },
     {
       title: "Scalable for Homes to Communities",
       subtitle:
         "Start small for indoor use at home, or expand for schools, community projects, and larger facilities—built with a modular design that grows with your needs.",
-      image: "/assets/images/02.png",
+      image: "/assets/images/cinematic/6.webp",
     },
   ];
 
@@ -66,7 +66,7 @@ export default function Benefits() {
       <div
         className="
           flex flex-col lg:flex-row
-          gap-10 lg:gap-14
+          gap-0 lg:gap-0
           items-start lg:items-center
           justify-between
         "
@@ -77,6 +77,7 @@ export default function Benefits() {
             w-full lg:w-[34%]
             flex flex-col
             justify-center items-start
+            pb-10
           "
           data-aos="fade-up"
           data-aos-duration="1500"

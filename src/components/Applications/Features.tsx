@@ -39,11 +39,11 @@ export default function Features() {
             py-10 sm:py-14 lg:py-16
             grid grid-cols-1 lg:grid-cols-2
             items-center
-            gap-10 lg:gap-14
+            gap-0 lg:gap-0
           "
         >
           {/* TEXT */}
-          <div className="min-w-0 w-full">
+          <div className="min-w-0 w-full justify-items-center">
             <div className="max-w-[680px]">
               <h2
                 className="
@@ -94,7 +94,7 @@ export default function Features() {
 
           {/* IMAGE */}
           <div
-            className="min-w-0 w-full flex justify-center lg:justify-end"
+            className="min-w-0 w-full flex justify-center lg:justify-center"
             data-aos="fade-right"
             data-aos-duration="700"
           >
