@@ -34,6 +34,7 @@ export default function Footer() {
                 <li key={i}>
                   <Link href={item.href}>
                     <Image
+                      className="cis-footer__socialIcon"
                       src={`/assets/images/${item.icon}.svg`}
                       alt={item.title}
                       width={30}
@@ -54,19 +55,39 @@ export default function Footer() {
 
               <div className="cis-footer__office">
                 <div>
-                  <Image src="/assets/images/bank-icon.svg" alt="" width={20} height={20} />
+                  <Image
+                    src="/assets/images/bank-icon.svg"
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
                   <p>CIS Tech Ltd, Bangladesh</p>
                 </div>
                 <div>
-                  <Image src="/assets/images/location-icon.svg" alt="" width={20} height={20} />
+                  <Image
+                    src="/assets/images/location-icon.svg"
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
                   <p>House 410, Road 29, Mohakhali DOHS, Dhaka-1206.</p>
                 </div>
                 <div>
-                  <Image src="/assets/images/phone-icon.svg" alt="" width={20} height={20} />
+                  <Image
+                    src="/assets/images/phone-icon.svg"
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
                   <p>+880 1670 228 961</p>
                 </div>
                 <div>
-                  <Image src="/assets/images/mail-icon.svg" alt="" width={20} height={20} />
+                  <Image
+                    src="/assets/images/mail-icon.svg"
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
                   <p>info@cistechltd.net</p>
                 </div>
               </div>

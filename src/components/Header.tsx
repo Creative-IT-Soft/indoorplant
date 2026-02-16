@@ -6,6 +6,7 @@ import { ROUTES } from "@/utils/routes";
 import Image from "next/image";
 import { Link } from "react-scroll";
 import { FiMenu, FiX } from "react-icons/fi";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const DESKTOP_BP = 1120;
 
@@ -35,7 +36,8 @@ export default function Header() {
       className={[
         "fixed inset-x-0 top-0 z-50",
         "transition-all duration-300",
-        "bg-white",
+        "bg-[color:var(--header-bg)]",
+        "text-[color:var(--text)]",
         isScrolled ? "shadow-lg" : "",
       ].join(" ")}
     >
@@ -74,25 +76,29 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* ✅ Hamburger: visible BELOW 1120px */}
-          <button
-            className="
-              min-[1120px]:hidden
-              inline-flex items-center justify-center
-              h-10 w-10
-              md:h-11 md:w-11
-              text-[#111]
-              rounded-lg
-              hover:bg-black/5
-              transition
-            "
-            onClick={toggleMenu}
-            aria-label="Toggle Menu"
-          >
-            <span className="text-2xl">
-              {isMenuOpen ? <FiX /> : <FiMenu />}
-            </span>
-          </button>
+          {/* ✅ Right cluster (theme + hamburger) */}
+          <div className="min-[1120px]:hidden flex items-center gap-2">
+            <ThemeToggle />
+
+            {/* ✅ Hamburger: visible BELOW 1120px */}
+            <button
+              className="
+                inline-flex items-center justify-center
+                h-10 w-10
+                md:h-11 md:w-11
+                rounded-lg
+                text-[color:var(--text)]
+                hover:bg-[color:var(--hover)]
+                transition
+              "
+              onClick={toggleMenu}
+              aria-label="Toggle Menu"
+            >
+              <span className="text-2xl">
+                {isMenuOpen ? <FiX /> : <FiMenu />}
+              </span>
+            </button>
+          </div>
 
           {/* ✅ Desktop navigation: visible AT/ABOVE 1120px */}
           <nav className="hidden min-[1120px]:block">
@@ -106,9 +112,10 @@ export default function Header() {
                     offset={-84}
                     className="
                       inline-flex items-center justify-center
-                      font-semibold text-[#111]
+                      font-semibold
+                      text-[color:var(--text)]
                       transition
-                      hover:text-[#17c27b]
+                      hover:text-[color:var(--brand)]
                       text-sm md:text-base lg:text-[17px] xl:text-[18px]
                       px-3
                       h-[56px] md:h-[72px] lg:h-[84px]
@@ -122,8 +129,10 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* ✅ Desktop Contact button: visible AT/ABOVE 1120px */}
-          <div className="hidden min-[1120px]:flex items-center h-full">
+          {/* ✅ Desktop right (theme + contact): visible AT/ABOVE 1120px */}
+          <div className="hidden min-[1120px]:flex items-center h-full gap-3">
+            <ThemeToggle />
+
             <Link
               to={ROUTES.CONTACT_US}
               smooth
@@ -136,7 +145,8 @@ export default function Header() {
                 h-[42px] md:h-[46px] lg:h-[50px]
                 px-4 md:px-5 lg:px-6
                 rounded-[12px]
-                font-semibold text-white
+                font-semibold
+                text-white
                 text-sm md:text-base lg:text-[17px]
                 leading-none
                 transition
@@ -177,9 +187,9 @@ export default function Header() {
             className="
               mt-2
               rounded-xl
-              bg-white
+              bg-[color:var(--surface)]
               shadow-lg
-              border border-black/10
+              border border-[color:var(--border)]
             "
           >
             <ul className="flex flex-col p-3">
@@ -195,10 +205,10 @@ export default function Header() {
                       flex w-full items-center
                       px-4 py-3
                       font-semibold
-                      text-[#111]
+                      text-[color:var(--text)]
                       text-base
                       rounded-lg
-                      hover:bg-black/5
+                      hover:bg-[color:var(--hover)]
                       transition
                     "
                   >

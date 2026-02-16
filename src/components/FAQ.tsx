@@ -37,7 +37,14 @@ export default function FAQ() {
   return (
     <Element
       name={ROUTES.FAQ}
-      className="flex md:flex-row flex-col justify-between gap-10 bg-[#000000] py-10 w-full text-white container--padding overflow-hidden"
+      className="
+        flex md:flex-row flex-col justify-between gap-10
+        bg-[color:var(--bg)]
+        py-10 w-full
+        text-[color:var(--text)]
+        container--padding
+        overflow-hidden
+      "
     >
       {/* LEFT */}
       <div
@@ -48,13 +55,22 @@ export default function FAQ() {
         <h1 className="mb-8 font-bold text-[24px]">
           Any questions? We’re here to help
         </h1>
-        <p className="mb-8 text-[14px]">
-          Still have questions or want to learn more about indoor growing?
-          Reach out to us anytime.
+
+        <p className="mb-8 text-[14px] text-[color:var(--muted-text)]">
+          Still have questions or want to learn more about indoor growing? Reach
+          out to us anytime.
         </p>
 
         <div className="flex items-center gap-5 contact--section">
-          <div className="flex flex-col gap-3 border-[#2e3139] p-5 border rounded-lg phone">
+          {/* Phone */}
+          <div
+            className="
+              flex flex-col gap-3
+              p-5 border rounded-lg phone
+              bg-[color:var(--surface)]
+              border-[color:var(--border)]
+            "
+          >
             <div className="icon">
               <Image
                 src="/assets/images/phone-icon.svg"
@@ -63,13 +79,19 @@ export default function FAQ() {
                 height={30}
               />
             </div>
-            <p className="font-medium text-[#8a8d96] text-[12px]">
+
+            <p className="font-medium text-[12px] text-[color:var(--muted-text)]">
               Prefer to talk?
             </p>
 
             <Link
               href=""
-              className="flex items-center gap-1 font-semibold text-[#9ceffe] text-[12px]"
+              className="
+                flex items-center gap-1
+                font-semibold text-[12px]
+                text-[color:var(--footer-link)]
+                hover:opacity-90 transition
+              "
             >
               <span>Call us</span>
               <Image
@@ -81,7 +103,15 @@ export default function FAQ() {
             </Link>
           </div>
 
-          <div className="flex flex-col gap-3 border-[#2e3139] p-5 border rounded-lg whatsapp">
+          {/* WhatsApp */}
+          <div
+            className="
+              flex flex-col gap-3
+              p-5 border rounded-lg whatsapp
+              bg-[color:var(--surface)]
+              border-[color:var(--border)]
+            "
+          >
             <div className="icon">
               <Image
                 src="/assets/images/whatsapp-icon.svg"
@@ -90,13 +120,19 @@ export default function FAQ() {
                 height={30}
               />
             </div>
-            <p className="font-medium text-[#8a8d96] text-[12px]">
+
+            <p className="font-medium text-[12px] text-[color:var(--muted-text)]">
               Want a quick answer?
             </p>
 
             <Link
               href=""
-              className="flex items-center gap-1 font-semibold text-[#31c662] text-[12px]"
+              className="
+                flex items-center gap-1
+                font-semibold text-[12px]
+                text-[color:var(--brand)]
+                hover:opacity-90 transition
+              "
             >
               <span>Chat now</span>
               <Image
@@ -114,15 +150,26 @@ export default function FAQ() {
       <div className="faq--right w-full md:w-[65%]">
         {faqs.map((faq, index) => (
           <div
-            className="bg-[#161822] mb-5 p-5 rounded-lg"
+            className="
+              mb-5 p-5 rounded-lg
+              bg-[color:var(--surface)]
+              border border-[color:var(--border)]
+            "
             key={faq.title}
             data-aos="fade-left"
             data-aos-duration="1000"
             data-aos-delay={index * 200}
           >
             <details className="group">
-              <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
+              <summary
+                className="
+                  flex justify-between items-center
+                  font-medium cursor-pointer list-none
+                  text-[color:var(--text)]
+                "
+              >
                 <span>{faq.title}</span>
+
                 <span className="group-open:rotate-180 transition">
                   <svg
                     fill="none"
@@ -134,13 +181,18 @@ export default function FAQ() {
                     strokeWidth="1.5"
                     viewBox="0 0 24 24"
                     width={28}
-                    className="bg-[#21242d] p-1 rounded-full"
+                    className="
+                      p-1 rounded-full
+                      bg-[color:var(--hover)]
+                      text-[color:var(--text)]
+                    "
                   >
                     <path d="M6 9l6 6 6-6" />
                   </svg>
                 </span>
               </summary>
-              <p className="mt-3 text-neutral-100 group-open:animate-fadeIn">
+
+              <p className="mt-3 text-[color:var(--muted-text)] group-open:animate-fadeIn">
                 {faq.content}
               </p>
             </details>

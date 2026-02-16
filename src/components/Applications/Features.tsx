@@ -8,14 +8,22 @@ import { Element } from "react-scroll";
 export default function Features() {
   return (
     <>
-      <Element name={ROUTES.FEATURES} className="bg-[#0c0f19] border-none">
-        <div className="container--padding pt-0 sm:pt-0 lg:pt-0"style={{paddingLeft:"0px"}}>
+      {/* ✅ Section label/header strip with subtle green-tinted background */}
+      <Element
+        name={ROUTES.FEATURES}
+        className="bg-[color:var(--surface-2)] border-none"
+      >
+        <div
+          className="container--padding pt-0 sm:pt-0 lg:pt-0"
+          style={{ paddingLeft: "0px" }}
+        >
           <h1
             className="
               inline-block
               px-4 sm:px-5 lg:px-6
               py-3 sm:py-4
-              font-black text-white
+              font-black
+              text-[color:var(--text)]
               text-[1.35rem] sm:text-[1.75rem] md:text-[2.2rem] lg:text-[2.875rem]
               leading-tight
             "
@@ -32,7 +40,8 @@ export default function Features() {
         </div>
       </Element>
 
-      <section className="bg-[#0c0f19] text-white overflow-hidden">
+      {/* ✅ Main feature section uses subtle green tint instead of hard black */}
+      <section className="bg-[color:var(--surface-2)] text-[color:var(--text)] overflow-hidden">
         <div
           className="
             container--padding
@@ -47,11 +56,12 @@ export default function Features() {
             <div className="max-w-[680px]">
               <h2
                 className="
-                  mb-4 sm:mb-6 lg:mb-8
-                  font-bold text--primary--linear uppercase
-                  text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-                  leading-tight
-                "
+                mb-4 sm:mb-6 lg:mb-8
+                font-bold uppercase
+                text-[color:var(--text)]
+                text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+                leading-tight
+              "
                 data-aos="fade-left"
                 data-aos-duration="700"
               >
@@ -61,11 +71,11 @@ export default function Features() {
               <p
                 className="
                   mb-6 sm:mb-8 lg:mb-10
-                  font-semibold text--white--linear
+                  font-semibold
+                  text-[color:var(--muted-text)]
                   text-sm sm:text-base md:text-lg
                   text-justify
                   leading-relaxed
-                  opacity-95
                 "
                 data-aos="fade-left"
                 data-aos-duration="700"
@@ -77,7 +87,8 @@ export default function Features() {
 
               <button
                 className="
-                  quote bg--primary--linear rounded-md font-semibold
+                  quote
+                  rounded-md font-semibold
                   w-full sm:w-auto
                   px-5 sm:px-7 md:px-8
                   py-2 sm:py-2.5 md:py-3

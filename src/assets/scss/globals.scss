@@ -1,20 +1,133 @@
+/* =========================
+   GLOBAL THEME TOKENS
+   ========================= */
+
+/* Keep your primary as requested */
 :root {
   --color-primary: #4b80a1;
+
+  /* Base (Light default) */
+  --bg: #ffffff;
+  --text: #111111;
+  --muted-text: rgba(17, 17, 17, 0.72);
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-2: #f3f8f5;     /* very soft green wash */
+  --surface-3: #eaf4ee;     /* slightly stronger green */
+  --header-bg: #ffffff;
+    --surface-5: #f3f8f5;
+
+  /* Borders & hover */
+  --border: rgba(0, 0, 0, 0.10);
+  --hover: rgba(0, 0, 0, 0.06);
+
+  /* Brand */
+  --brand: #17c27b;
+  --brand-contrast: #ffffff;
+
+  /* Links */
+  --link: #17c27b;
+
+  /* Footer / dark-panel tokens (so you can theme CIS footer without hardcoding) */
+  --footer-sky: #ffffff;
+  --footer-stage-bg: #ffffff;
+
+  --footer-panel-bg: rgba(12, 15, 25, 0.98);
+  --footer-panel-border: rgba(255, 255, 255, 0.08);
+  --footer-panel-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+
+  --footer-bottom-bg: #0c0f19;
+  --footer-divider: rgba(255, 255, 255, 0.12);
+  --footer-text: rgba(255, 255, 255, 0.85);
+  --footer-text-muted: rgba(255, 255, 255, 0.8);
+  --footer-copyright: rgba(255, 255, 255, 0.5);
+  --footer-link: #9ceffe;
+
+  /* Capsule (tablet<=1024) */
+  --footer-capsule-bg: rgba(12, 15, 25, 0.06);
+  --footer-capsule-border: rgba(12, 15, 25, 0.10);
+  --footer-capsule-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
+
+  /* Quote button */
+  --quote-bg: linear-gradient(135deg, #8a8a8a, #6f6f6f);
+  --quote-text: #ffffff;
+  --quote-shadow: 0px 4px 12px rgba(0, 0, 0, 0.18);
+  --quote-glow: 0 0 2px 2px rgba(180, 180, 180, 0.6);
+  --quote-border: #bdbdbd;
+}
+
+/* Dark theme overrides */
+html.dark {
+  --bg: #0b0f14;
+  --text: #e9eef5;
+  --muted-text: rgba(233, 238, 245, 0.72);
+
+  --surface: #101826;
+  --surface-2: #0c301c;     /* deep green */
+  --surface-3: #14291f;  
+  --header-bg: #0b0f14;
+  --surface-4: #0b0f14;
+  --surface-5: #101826;
+
+
+  --border: rgba(255, 255, 255, 0.12);
+  --hover: rgba(255, 255, 255, 0.08);
+
+  --brand: #17c27b;
+  --brand-contrast: #0b0f14;
+  --link: #33d990;
+
+  --footer-sky: #000000;
+  --footer-stage-bg: #0b0f14;
+
+  /* Panel stays dark in both themes (you can lighten if you want) */
+  --footer-panel-bg: rgba(12, 15, 25, 0.98);
+  --footer-panel-border: rgba(255, 255, 255, 0.10);
+  --footer-panel-shadow: 0 10px 40px rgba(0, 0, 0, 0.55);
+
+  --footer-bottom-bg: #0c0f19;
+  --footer-divider: rgba(255, 255, 255, 0.14);
+  --footer-text: rgba(255, 255, 255, 0.88);
+  --footer-text-muted: rgba(255, 255, 255, 0.82);
+  --footer-copyright: rgba(255, 255, 255, 0.55);
+  --footer-link: #9ceffe;
+
+  --footer-capsule-bg: rgba(255, 255, 255, 0.06);
+  --footer-capsule-border: rgba(255, 255, 255, 0.12);
+  --footer-capsule-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+
+  /* Quote stays same by default */
+}
+
+/* Apply globally */
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Optional: smooth theme transition */
+html.theme-animate *,
+html.theme-animate *::before,
+html.theme-animate *::after {
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease,
+    box-shadow 160ms ease;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities{
+@layer utilities {
   .feature--container {
     height: calc(100svh - 250px);
   }
-  
-  .promo--video--container{
+
+  .promo--video--container {
     height: calc(100svh - 200px);
   }
-  
+
   .call--to--action--container {
     height: calc(100svh - 100px);
   }
@@ -24,13 +137,14 @@
   @apply px-4 md:px-8 lg:px-12 xl:px-20;
 }
 
+/* Buttons / text effects */
 .explore--btn {
   background: linear-gradient(90deg, #8a8a8a 0%, #6f6f6f 100%);
   color: #ffffff;
 }
 
 .text--primary--linear {
-  background: #80ff8b;
+  background: #15d425;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -63,15 +177,6 @@
   animation: shine-animation 15s linear infinite;
 }
 
-@keyframes shine-animation {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
 .shine-effect-1 {
   display: inline-block;
   background: linear-gradient(
@@ -88,6 +193,7 @@
   animation: shine-animation 15s linear infinite;
 }
 
+/* Keep only ONE keyframes block (you had duplicates) */
 @keyframes shine-animation {
   0% {
     background-position: -200% center;
@@ -97,21 +203,22 @@
   }
 }
 
+/* Quote button (now tokenized) */
 .quote {
-  background: linear-gradient(135deg, #8a8a8a, #6f6f6f);
+  background: var(--quote-bg);
   border-radius: 10px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.18);
+  box-shadow: var(--quote-shadow);
   cursor: pointer;
   outline: none;
   position: relative;
   transition: all 0.8s ease-in-out;
   text-align: left;
-  color: #ffffff;
+  color: var(--quote-text);
 }
 
 /* Subtle glow border */
 .quote::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -120,8 +227,8 @@
   height: 100%;
   border-radius: 9px;
   padding: 10px;
-  box-shadow: 0 0 2px 2px rgba(180, 180, 180, 0.6);
-  border: 1px solid #bdbdbd;
+  box-shadow: var(--quote-glow);
+  border: 1px solid var(--quote-border);
   opacity: 0;
   transition: all 0.8s ease-in-out;
 }
@@ -140,7 +247,7 @@
 
 /* Reserved animation layer */
 .quote::after {
-  content: '';
+  content: "";
   width: 20px;
   height: 20px;
   position: absolute;
@@ -151,7 +258,7 @@
   transition: all 10s ease-out;
 }
 
-
+/* Scrollbar helpers */
 .hide-scrollbar {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
@@ -172,24 +279,24 @@
 }
 
 /* ================================
-   CIS Footer
+   CIS Footer (Theme-ready)
    ================================ */
 
 .cis-footer {
   position: relative;
   overflow: hidden;
+
+  /* ✅ match site section tint */
+  background: var(--surface);
+  color: var(--text);
 }
 
 /* Sky behind plant */
 .cis-footer__sky {
   position: absolute;
   inset: 0;
-  background: #fff;
+  background: var(--surface);
   z-index: 0;
-}
-
-html.dark .cis-footer__sky {
-  background: #000;
 }
 
 /* ================================
@@ -199,9 +306,11 @@ html.dark .cis-footer__sky {
 .cis-footer__stage {
   position: relative;
   z-index: 1;
-  background: #fff;
 
-  /* Desktop scene height (keeps bottom strip visible) */
+  /* ✅ match your new green tint */
+  background: var(--surface-4);
+
+  /* keep the same scene height */
   height: clamp(680px, 78vh, 860px);
 
   overflow: hidden;
@@ -235,10 +344,8 @@ html.dark .cis-footer__sky {
   right: 0;
   bottom: 0;
   z-index: 3; /* above plant */
-
   display: grid;
   grid-template-columns: 1fr;
-
   align-items: end;
 
   @media (min-width: 768px) {
@@ -259,10 +366,11 @@ html.dark .cis-footer__sky {
    ================================ */
 
 .cis-footer__panel {
-  background: rgba(12, 15, 25, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-  color: #fff;
+  /* ✅ theme-aware card surface */
+  background: var(--surface-5);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.10);
+  color: var(--text);
 
   padding: 34px 54px 28px;
 
@@ -280,14 +388,14 @@ html.dark .cis-footer__sky {
   border-radius: 220px 0 0 0;
 }
 
-/* ✅ Fix #1: force BOTH panels same height on desktop (no content mismatch) */
+/* ✅ Force BOTH panels same height on desktop */
 @media (min-width: 768px) {
   .cis-footer__grid {
-    align-items: stretch; /* stretch items to same height */
+    align-items: stretch;
   }
 
   .cis-footer__panel {
-    height: 440px; /* choose your exact visual height */
+    height: 440px;
     min-height: 440px;
   }
 }
@@ -300,14 +408,16 @@ html.dark .cis-footer__sky {
   margin: 0 0 18px 0;
   font-size: 14px;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--muted-text);
   max-width: 60ch;
 }
 
 .cis-footer__follow {
   margin: 18px 0 10px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--text);
 }
 
 .cis-footer__social {
@@ -319,7 +429,7 @@ html.dark .cis-footer__sky {
 }
 
 /* ================================
-   RIGHT CONTENT (aligned)
+   RIGHT CONTENT
    ================================ */
 
 .cis-footer__right-inner {
@@ -333,7 +443,8 @@ html.dark .cis-footer__sky {
 .cis-footer__right-title {
   margin: 0 0 16px 0;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 800;
+  color: var(--text);
 }
 
 .cis-footer__office {
@@ -353,7 +464,7 @@ html.dark .cis-footer__sky {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--muted-text);
 }
 
 /* ================================
@@ -363,13 +474,15 @@ html.dark .cis-footer__sky {
 .cis-footer__bottom {
   position: relative;
   z-index: 2;
-  background: #0c0f19;
+
+  /* ✅ slightly stronger tint to close the page */
+  background: var(--surface-4);
   padding: 18px 0 20px;
 }
 
 .cis-footer__divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--border);
   width: min(1320px, calc(100% - 64px));
   margin: 0 auto 14px;
 
@@ -390,36 +503,32 @@ html.dark .cis-footer__sky {
   p {
     margin: 4px 0;
     font-size: 14px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.5);
+    font-weight: 700;
+    color: var(--muted-text);
   }
 
   a {
-    color: #9ceffe;
+    color: var(--brand);
   }
 }
 
 /* ================================
-   ✅ Fix #2: Tablet & below (<=1024px)
+   ✅ Tablet & below (<=1024px)
    Stack layout:
-   video (capsule, max 410px)
-   RIGHT panel full width (no curve)
-   LEFT panel full width (no curve)
+   plant capsule
+   RIGHT panel full width
+   LEFT panel full width
    bottom strip
    ================================ */
 
 @media (max-width: 1024px) {
-  /* stage becomes normal flow */
   .cis-footer__stage {
     height: auto;
     overflow: visible;
     padding: 0;
-    background: #fff;
+    background: var(--surface-4);
   }
 
-  /* ================================
-     Plant (capsule container)
-     ================================ */
   .cis-footer__plant {
     position: relative;
     left: auto;
@@ -427,38 +536,28 @@ html.dark .cis-footer__sky {
     transform: none;
 
     width: 100%;
-    max-width: 410px;      /* ✅ cap size */
+    max-width: 410px;
     margin: 24px auto 12px;
 
     z-index: 1;
     pointer-events: none;
 
-    /* capsule */
-    background: rgba(12, 15, 25, 0.06);
-    border: 1px solid rgba(12, 15, 25, 0.10);
+    /* ✅ capsule uses theme tokens */
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border);
     border-radius: 999px;
     padding: 22px 18px 0;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
 
     overflow: hidden;
   }
 
-  .cis-footer__plant video {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Dark mode capsule */
+  /* ✅ stronger capsule in dark mode */
   html.dark .cis-footer__plant {
     background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.12);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
   }
 
-  /* ================================
-     Grid becomes stacked flow
-     ================================ */
   .cis-footer__grid {
     position: relative;
     left: auto;
@@ -476,9 +575,6 @@ html.dark .cis-footer__sky {
     display: none !important;
   }
 
-  /* ================================
-     Panels full width, no curves
-     ================================ */
   .cis-footer__panel {
     width: 100%;
     height: auto !important;
@@ -486,25 +582,34 @@ html.dark .cis-footer__sky {
     border-radius: 0 !important;
   }
 
-  /* RIGHT panel first */
   .cis-footer__panel--right {
     order: 1;
   }
 
-  /* LEFT panel second */
   .cis-footer__panel--left {
     order: 2;
   }
 
-  /* Right panel inner spacing reset */
   .cis-footer__right-inner {
     padding-left: 0;
   }
 
-  /* ================================
-     Bottom strip unchanged
-     ================================ */
   .cis-footer__bottom {
     width: 100%;
   }
+}
+
+.cis-footer__socialIcon {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+html.dark .cis-footer__socialIcon {
+  filter: brightness(0) saturate(100%) invert(1);
+}
+
+.cis-footer__socialIcon:hover {
+  opacity: 1;
+  transform: translateY(-1px);
 }

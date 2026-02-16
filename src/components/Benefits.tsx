@@ -42,25 +42,22 @@ export default function Benefits() {
   ];
 
   const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -340, behavior: "smooth" });
-    }
+    scrollContainerRef.current?.scrollBy({ left: -340, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 340, behavior: "smooth" });
-    }
+    scrollContainerRef.current?.scrollBy({ left: 340, behavior: "smooth" });
   };
 
   return (
     <Element
       name={ROUTES.BENEFITS}
       className="
-        bg-[#0c0f19]
+        bg-[color:var(--surface-2)]
         container--padding
         py-16 sm:py-20 lg:py-28
         overflow-hidden
+        text-[color:var(--text)]
       "
     >
       <div
@@ -84,7 +81,7 @@ export default function Benefits() {
         >
           <h1
             className="
-              font-bold uppercase text--primary--linear
+              font-bold uppercase text-[color:var(--text)]
               text-2xl sm:text-3xl md:text-4xl lg:text-[48px]
               leading-normal lg:leading-snug
               mb-6
@@ -101,9 +98,10 @@ export default function Benefits() {
               className="
                 h-10 w-10 sm:h-11 sm:w-11
                 flex items-center justify-center
-                border rounded-full border-[#000]
-                bg-[#403f3f]
-                hover:bg-[#5e6163]
+                border rounded-full
+                border-[color:var(--border)]
+                bg-[color:var(--surface)]
+                hover:bg-[color:var(--hover)]
                 transition
               "
             >
@@ -112,8 +110,8 @@ export default function Benefits() {
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke="white"
-                className="w-5 h-5"
+                stroke="currentColor"
+                className="w-5 h-5 text-[color:var(--text)]"
               >
                 <path
                   strokeLinecap="round"
@@ -129,9 +127,10 @@ export default function Benefits() {
               className="
                 h-10 w-10 sm:h-11 sm:w-11
                 flex items-center justify-center
-                border rounded-full border-[#000]
-                bg-[#403f3f]
-                hover:bg-[#5e6163]
+                border rounded-full
+                border-[color:var(--border)]
+                bg-[color:var(--surface)]
+                hover:bg-[color:var(--hover)]
                 transition
               "
             >
@@ -140,8 +139,8 @@ export default function Benefits() {
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke="white"
-                className="w-5 h-5"
+                stroke="currentColor"
+                className="w-5 h-5 text-[color:var(--text)]"
               >
                 <path
                   strokeLinecap="round"
@@ -175,8 +174,9 @@ export default function Benefits() {
               className="
                 snap-start
                 flex-shrink-0
-                bg-[#403f3f] hover:bg-[#5e6163]
-                border border-[#c0c3c5]
+                bg-[color:var(--surface)]
+                hover:bg-[color:var(--hover)]
+                border border-[color:var(--border)]
                 rounded-lg
                 shadow-md hover:shadow-lg
                 transition
@@ -203,7 +203,7 @@ export default function Benefits() {
                 <h3 className="text--primary--linear font-bold text-sm sm:text-base">
                   {benefit.title}
                 </h3>
-                <p className="text-white text-xs sm:text-sm leading-relaxed mt-1">
+                <p className="text-[color:var(--muted-text)] text-xs sm:text-sm leading-relaxed mt-1">
                   {benefit.subtitle}
                 </p>
               </div>
@@ -213,7 +213,7 @@ export default function Benefits() {
       </div>
 
       {/* Mobile hint */}
-      <p className="mt-6 text-center text-xs text-white/50 lg:hidden">
+      <p className="mt-6 text-center text-xs text-[color:var(--muted-text)] lg:hidden">
         Swipe left or right
       </p>
     </Element>

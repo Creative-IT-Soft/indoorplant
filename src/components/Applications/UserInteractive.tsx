@@ -5,7 +5,7 @@ import BlurredImage from "../BlurredImage";
 
 export default function UserInteractive() {
   return (
-    <section className="bg-[#000] text-white overflow-hidden">
+    <section className="bg-[color:var(--bg)] text-[color:var(--text)] overflow-hidden">
       <div
         className="
           container--padding
@@ -49,7 +49,8 @@ export default function UserInteractive() {
             <h2
               className="
                 mb-4 sm:mb-6 lg:mb-8
-                font-bold text-[#ffffe4] uppercase
+                font-bold uppercase
+                text-[color:var(--text)]
                 text-2xl sm:text-3xl md:text-4xl lg:text-5xl
                 leading-tight
               "
@@ -62,11 +63,11 @@ export default function UserInteractive() {
             <p
               className="
                 mb-6 sm:mb-8 lg:mb-10
-                font-semibold text--white--linear
+                font-semibold
+                text-[color:var(--muted-text)]
                 text-sm sm:text-base md:text-lg
                 text-justify
                 leading-relaxed
-                opacity-95
               "
               data-aos="fade-left"
               data-aos-duration="700"
@@ -78,7 +79,9 @@ export default function UserInteractive() {
 
             <button
               className="
-                quote bg--primary--linear rounded-md font-semibold
+                quote
+                rounded-md
+                font-semibold
                 w-full sm:w-auto
                 px-5 sm:px-7 md:px-8
                 py-2 sm:py-2.5 md:py-3

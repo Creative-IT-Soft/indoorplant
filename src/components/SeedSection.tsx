@@ -91,14 +91,14 @@ export default function HomeBanner() {
   return (
     <Element
       name={ROUTES.SEEDS}
-      className="relative bg-[#000000] py-14 container--padding overflow-hidden"
+      className="relative bg-[color:var(--bg)] py-14 container--padding overflow-hidden"
     >
       {/* Section Heading */}
       <div className="mb-10">
-        <h2 className="font-black text-[48px] text--primary--linear uppercase text-[#80ff8b]">
+        <h2 className="font-black text-[48px] text-[color:var(--text)] uppercase">
           What You Can Grow
         </h2>
-        <p className="mt-3 text-base md:text-lg text-[#cfcfcf] max-w-[760px]">
+        <p className="mt-3 text-base md:text-lg text-[color:var(--muted-text)] max-w-[760px]">
           Carefully selected herbs and vegetables that thrive in controlled
           indoor environments.
         </p>
@@ -111,39 +111,46 @@ export default function HomeBanner() {
           <button
             onClick={prev}
             aria-label="Previous"
-            className="hidden md:flex shrink-0
-                       h-12 w-12 items-center justify-center rounded-full
-                       bg-[#fff] border border-white/20
-                       hover:bg-[#80ff8b] transition"
+            className="
+              hidden md:flex shrink-0
+              h-12 w-12 items-center justify-center rounded-full
+              bg-[color:var(--surface)]
+              border border-[color:var(--border)]
+              hover:bg-[color:var(--hover)]
+              transition
+            "
           >
-            <span className="text-3xl font-medium text-black">‹</span>
+            <span className="text-3xl font-medium text-[color:var(--text)]">
+              ‹
+            </span>
           </button>
 
           {/* Scroll Container (center) */}
           <div
             ref={scrollerRef}
-            className="flex-1 flex gap-6 md:gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory
-                       pr-2 no-scrollbar"
+            className="
+              flex-1 flex gap-6 md:gap-8
+              overflow-x-auto scroll-smooth snap-x snap-mandatory
+              pr-2 no-scrollbar
+            "
           >
             {items.map((it) => (
               <div
                 key={it.id}
-                className="snap-start shrink-0 w-[260px] md:w-[300px]
-                           rounded-2xl bg-[#0c0f19]
-                           border border-white/10
-                           shadow-[0_12px_40px_rgba(0,0,0,0.7)]
-                           p-6"
+                className="
+                  snap-start shrink-0 w-[260px] md:w-[300px]
+                  rounded-2xl
+                  bg-[color:var(--surface)]
+                  border border-[color:var(--border)]
+                  shadow-[0_12px_40px_rgba(0,0,0,0.35)]
+                  p-6
+                "
               >
                 <div className="relative w-full h-[250px] rounded-xl overflow-hidden">
-                  <Image
-                    src={it.image}
-                    alt={it.title}
-                    fill
-                    className="object-cover"
-                  />
+                  <Image src={it.image} alt={it.title} fill className="object-cover" />
                 </div>
 
-                <p className="mt-5 text-center text-xl md:text-2xl font-bold text-white capitalize">
+                <p className="mt-5 text-center text-xl md:text-2xl font-bold text-[color:var(--text)] capitalize">
                   {it.title}
                 </p>
               </div>
@@ -154,12 +161,18 @@ export default function HomeBanner() {
           <button
             onClick={next}
             aria-label="Next"
-            className="hidden md:flex shrink-0
-                       h-12 w-12 items-center justify-center rounded-full
-                       bg-[#fff] border border-white/20
-                       hover:bg-[#80ff8b] transition"
+            className="
+              hidden md:flex shrink-0
+              h-12 w-12 items-center justify-center rounded-full
+              bg-[color:var(--surface)]
+              border border-[color:var(--border)]
+              hover:bg-[color:var(--hover)]
+              transition
+            "
           >
-            <span className="text-3xl font-medium text-black">›</span>
+            <span className="text-3xl font-medium text-[color:var(--text)]">
+              ›
+            </span>
           </button>
         </div>
 
@@ -170,18 +183,19 @@ export default function HomeBanner() {
               key={i}
               aria-label={`Go to item ${i + 1}`}
               onClick={() => scrollToIndex(i)}
-              className={`h-3 w-3 rounded-full transition ${
+              className={[
+                "h-3 w-3 rounded-full transition",
                 i === activeIndex
-                  ? "bg-[#80ff8b] scale-110"
-                  : "bg-white/30 hover:bg-white/50"
-              }`}
+                  ? "bg-[color:var(--brand)] scale-110"
+                  : "bg-[color:var(--border)] hover:bg-[color:var(--muted-text)]",
+              ].join(" ")}
             />
           ))}
         </div>
       </div>
 
       {/* Mobile hint */}
-      <p className="mt-5 text-center text-xs text-white/50 md:hidden">
+      <p className="mt-5 text-center text-xs text-[color:var(--muted-text)] md:hidden">
         Swipe left or right
       </p>
     </Element>
