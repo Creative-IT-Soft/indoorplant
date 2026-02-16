@@ -91,7 +91,7 @@ export default function HomeBanner() {
   return (
     <Element
       name={ROUTES.SEEDS}
-      className="relative bg-[color:var(--bg)] py-14 container--padding overflow-hidden"
+      className="relative bg-[color:var(--surface)] py-14 container--padding overflow-hidden"
     >
       {/* Section Heading */}
       <div className="mb-10">
@@ -106,7 +106,7 @@ export default function HomeBanner() {
 
       {/* Carousel + Outside Arrows */}
       <div className="relative">
-        <div className="flex items-center gap-4 md:gap-6">
+        <div className="flex items-center gap-4 md:gap-6 ">
           {/* Left Arrow (outside) */}
           <button
             onClick={prev}
@@ -127,26 +127,31 @@ export default function HomeBanner() {
 
           {/* Scroll Container (center) */}
           <div
-            ref={scrollerRef}
-            className="
-              flex-1 flex gap-6 md:gap-8
-              overflow-x-auto scroll-smooth snap-x snap-mandatory
-              pr-2 no-scrollbar
-            "
-          >
+  ref={scrollerRef}
+  className="
+    flex-1 flex gap-6 md:gap-8
+    overflow-x-auto scroll-smooth snap-x snap-mandatory
+    no-scrollbar
+
+    bg-[color:var(--surface-5)]
+    rounded-2xl
+    px-6
+    py-6
+  "
+>
             {items.map((it) => (
               <div
                 key={it.id}
                 className="
                   snap-start shrink-0 w-[260px] md:w-[300px]
                   rounded-2xl
-                  bg-[color:var(--surface)]
+                  bg-[color:var(--surface-5)]
                   border border-[color:var(--border)]
                   shadow-[0_12px_40px_rgba(0,0,0,0.35)]
                   p-6
                 "
               >
-                <div className="relative w-full h-[250px] rounded-xl overflow-hidden">
+                <div className="relative w-full h-[250px] rounded-xl overflow-hidde">
                   <Image src={it.image} alt={it.title} fill className="object-cover" />
                 </div>
 
