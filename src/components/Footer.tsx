@@ -1,8 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { socialMenu } from "@/utils/menu";
+import { useTheme } from "@/app/ThemeProvider"; // ← UPDATE THIS PATH
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const videoSrc =
+    theme === "dark"
+      ? "/assets/videos/plantBlack.mp4"
+      : "/assets/videos/plantWhite.mp4";
+
   return (
     <footer className="cis-footer">
       <div className="cis-footer__sky" />
@@ -11,8 +30,8 @@ export default function Footer() {
       <div className="cis-footer__stage">
         {/* Plant (behind panels) */}
         <div className="cis-footer__plant" aria-hidden="true">
-          <video autoPlay loop muted playsInline>
-            <source src="/assets/videos/plant.webm" type="video/webm" />
+          <video autoPlay loop muted playsInline key={videoSrc}>
+            <source src={videoSrc} type="video/mp4" />
           </video>
         </div>
 

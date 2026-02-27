@@ -16,7 +16,8 @@
   --surface-2: #f3f8f5;     /* very soft green wash */
   --surface-3: #eaf4ee;     /* slightly stronger green */
   --header-bg: #ffffff;
-    --surface-5: #f3f8f5;
+  --surface-5: #f3f8f5;
+  --surface-7: #fff;
 
   /* Borders & hover */
   --border: rgba(0, 0, 0, 0.10);
@@ -69,7 +70,7 @@ html.dark {
   --header-bg: #0b0f14;
   --surface-4: #0b0f14;
   --surface-5: #101826;
-
+  --surface-7: #000; 
 
   --border: rgba(255, 255, 255, 0.12);
   --hover: rgba(255, 255, 255, 0.08);
@@ -287,7 +288,7 @@ html.theme-animate *::after {
   overflow: hidden;
 
   /* ✅ match site section tint */
-  background: var(--surface);
+  background: var(--surface7);
   color: var(--text);
 }
 
@@ -295,7 +296,7 @@ html.theme-animate *::after {
 .cis-footer__sky {
   position: absolute;
   inset: 0;
-  background: var(--surface);
+  background: var(--surface7);
   z-index: 0;
 }
 
@@ -308,7 +309,7 @@ html.theme-animate *::after {
   z-index: 1;
 
   /* ✅ match your new green tint */
-  background: var(--surface-4);
+  background: var(--surface-7);
 
   /* keep the same scene height */
   height: clamp(680px, 78vh, 860px);
