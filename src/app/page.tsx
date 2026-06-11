@@ -14,7 +14,7 @@ import Features from "@/components/Benefits";
 
 export default function Home() {
   return (
-    <>
+    <div className="page-shell">
       <Header />
       <HomeBanner />
       <IntroBanner />
@@ -22,12 +22,11 @@ export default function Home() {
       <UserInteractive />
       <SmoothCommand />
       <Convertible />
-      <Features/>
-      <SeedSection/>
-      {/* <PromotionalVideo /> */}
+      <Features />
+      <SeedSection />
       <CallForAction />
       <FAQ />
       <Footer />
-    </>
+    </div>
   );
 }

@@ -2,131 +2,52 @@
 
 import React from "react";
 import BlurredImage from "../BlurredImage";
+import SectionHeading from "../SectionHeading";
 import { ROUTES } from "@/utils/routes";
 import { Element } from "react-scroll";
 
 export default function Features() {
   return (
     <>
-      {/* ✅ Section label/header strip with subtle green-tinted background */}
       <Element
         name={ROUTES.FEATURES}
-        className="bg-[color:var(--surface-2)] border-none"
+        className="section-shell bg-[color:var(--bg)] py-16 md:py-24"
       >
-        <div
-          className="container--padding pt-0 sm:pt-0 lg:pt-0"
-          style={{ paddingLeft: "0px" }}
-        >
-          <h1
-            className="
-              inline-block
-              px-4 sm:px-5 lg:px-6
-              py-3 sm:py-4
-              font-black
-              text-[color:var(--text)]
-              text-[1.35rem] sm:text-[1.75rem] md:text-[2.2rem] lg:text-[2.875rem]
-              leading-tight
-            "
-            data-aos="zoom-in"
-            style={{
-              backgroundImage: "url(/assets/images/feature-bg.png)",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "100% 100%",
-              backgroundPosition: "left top",
-            }}
-          >
-            What Does System Do?
-          </h1>
+        <div className="relative z-[1] container--padding">
+          <SectionHeading
+            eyebrow="Capabilities"
+            title="What does the system do?"
+            description="Automated care, continuous monitoring, and clear feedback—designed to make indoor growing reliable from day one."
+          />
         </div>
       </Element>
 
-      {/* ✅ Main feature section uses subtle green tint instead of hard black */}
-      <section className="bg-[color:var(--surface-2)] text-[color:var(--text)] overflow-hidden">
-        <div
-          className="
-            container--padding
-            py-10 sm:py-14 lg:py-16
-            grid grid-cols-1 lg:grid-cols-2
-            items-center
-            gap-0 lg:gap-0
-          "
-        >
-          {/* TEXT */}
-          <div className="min-w-0 w-full justify-items-center">
-            <div className="max-w-[680px]">
-              <h2
-                className="
-                mb-4 sm:mb-6 lg:mb-8
-                font-bold uppercase
-                text-[color:var(--text)]
-                text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-                leading-tight
-              "
-                data-aos="fade-left"
-                data-aos-duration="700"
-              >
+      <section className="bg-[color:var(--bg)] pb-16 md:pb-24">
+        <div className="container--padding">
+          <div className="premium-panel grid items-center gap-10 p-6 md:grid-cols-2 md:gap-12 md:p-10 lg:p-12">
+            <div className="max-w-xl">
+              <span className="feature-index mb-6">01</span>
+              <h2 className="section-title text-[color:var(--text)] md:text-4xl lg:text-5xl">
                 Automated Plant Care
               </h2>
-
-              <p
-                className="
-                  mb-6 sm:mb-8 lg:mb-10
-                  font-semibold
-                  text-[color:var(--muted-text)]
-                  text-sm sm:text-base md:text-lg
-                  text-justify
-                  leading-relaxed
-                "
-                data-aos="fade-left"
-                data-aos-duration="700"
-              >
+              <p className="mt-5 text-base leading-relaxed text-[color:var(--muted-text)] md:text-lg">
                 The system automatically manages essential growing conditions such
-                as temperature, lighting, watering, and nutrients. This ensures
-                plants receive balanced care every day, without guesswork.
+                as temperature, lighting, watering, and nutrients. Plants receive
+                balanced care every day, without guesswork.
               </p>
-
-              <button
-                className="
-                  quote
-                  rounded-md font-semibold
-                  w-full sm:w-auto
-                  px-5 sm:px-7 md:px-8
-                  py-2 sm:py-2.5 md:py-3
-                  text-sm sm:text-base md:text-lg
-                  max-w-[130px] sm:max-w-none
-                "
-                data-aos="fade-left"
-                data-aos-duration="700"
-              >
+              <button className="btn-primary quote mt-8 px-6 py-3 text-sm md:text-base">
                 Learn More
               </button>
             </div>
-          </div>
 
-          {/* IMAGE */}
-          <div
-            className="min-w-0 w-full flex justify-center lg:justify-center"
-            data-aos="fade-right"
-            data-aos-duration="700"
-          >
-            <div
-              className="
-                w-full max-w-full
-                sm:max-w-[560px]
-                md:max-w-[640px]
-                lg:max-w-[560px]
-                xl:max-w-[680px]
-                transition-transform duration-300 ease-in-out
-                hover:scale-[1.02] md:hover:scale-[1.05]
-              "
-            >
+            <div data-aos="fade-left" data-aos-duration="700">
               <BlurredImage
                 backgroundImage="/assets/images/graphite.png"
                 src="/assets/images/mintgreen.png"
-                alt="Lider"
+                alt="Automated Plant Care"
                 width={2000}
                 height={2000}
-                imageClassName="rounded-2xl"
+                imageClassName="rounded-[1.5rem]"
               />
             </div>
           </div>

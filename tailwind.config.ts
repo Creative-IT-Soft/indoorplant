@@ -11,6 +11,10 @@ export default {
       colors: {
         primary: "var(--color-primary)",
       },
+      fontFamily: {
+        display: ["var(--font-display)", "Fraunces", "Georgia", "serif"],
+        body: ["var(--font-body)", "Outfit", "system-ui", "sans-serif"],
+      },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
       },

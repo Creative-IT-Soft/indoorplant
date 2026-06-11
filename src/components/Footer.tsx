@@ -2,42 +2,41 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import OfficeLocations from "@/components/OfficeLocations";
 import { socialMenu } from "@/utils/menu";
-import { useTheme } from "@/app/ThemeProvider"; // ← UPDATE THIS PATH
+import { useTheme } from "@/app/ThemeProvider";
 import { useEffect, useState } from "react";
 
 export default function Footer() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
 
   if (!mounted) return null;
 
-  const videoSrc =
-    theme === "dark"
-      ? "/assets/videos/plantBlack.mp4"
-      : "/assets/videos/plantWhite.mp4";
+  const isDark = theme === "dark";
+  const videoSrc = isDark
+    ? "/assets/videos/plantBlack.mp4"
+    : "/assets/videos/plantWhite.mp4";
 
   return (
-    <footer className="cis-footer">
-      <div className="cis-footer__sky" />
+    <footer className={`cis-footer ${isDark ? "cis-footer--dark" : "cis-footer--light"}`}>
+      <div className="cis-footer__sky" aria-hidden="true" />
+      <div className="cis-footer__blend" aria-hidden="true" />
 
-      {/* STAGE */}
       <div className="cis-footer__stage">
-        {/* Plant (behind panels) */}
+        <div className="cis-footer__plant-backdrop" aria-hidden="true" />
+
         <div className="cis-footer__plant" aria-hidden="true">
           <video autoPlay loop muted playsInline key={videoSrc}>
             <source src={videoSrc} type="video/mp4" />
           </video>
         </div>
 
-        {/* Panels */}
         <div className="cis-footer__grid">
-          {/* LEFT */}
           <div className="cis-footer__panel cis-footer__panel--left">
             <p className="cis-footer__text">
               Our Indoor Smart Gardening System helps plants grow healthier by
@@ -46,76 +45,36 @@ export default function Footer() {
               communities, and sustainable environments.
             </p>
 
-            <h3 className="cis-footer__follow">FOLLOW US</h3>
-
-            <ul className="cis-footer__social">
-              {socialMenu.map((item, i) => (
-                <li key={i}>
-                  <Link href={item.href}>
-                    <Image
-                      className="cis-footer__socialIcon"
-                      src={`/assets/images/${item.icon}.svg`}
-                      alt={item.title}
-                      width={30}
-                      height={30}
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="cis-footer__social-block">
+              <h3 className="cis-footer__follow">FOLLOW US</h3>
+              <ul className="cis-footer__social">
+                {socialMenu.map((item, i) => (
+                  <li key={i}>
+                    <Link href={item.href}>
+                      <Image
+                        className="cis-footer__socialIcon"
+                        src={`/assets/images/${item.icon}.svg`}
+                        alt={item.title}
+                        width={30}
+                        height={30}
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className="cis-footer__spacer" />
 
-          {/* RIGHT */}
           <div className="cis-footer__panel cis-footer__panel--right">
             <div className="cis-footer__right-inner">
-              <h2 className="cis-footer__right-title">Our Office</h2>
-
-              <div className="cis-footer__office">
-                <div>
-                  <Image
-                    src="/assets/images/bank-icon.svg"
-                    alt=""
-                    width={20}
-                    height={20}
-                  />
-                  <p>CIS Tech Ltd, Bangladesh</p>
-                </div>
-                <div>
-                  <Image
-                    src="/assets/images/location-icon.svg"
-                    alt=""
-                    width={20}
-                    height={20}
-                  />
-                  <p>House 410, Road 29, Mohakhali DOHS, Dhaka-1206.</p>
-                </div>
-                <div>
-                  <Image
-                    src="/assets/images/phone-icon.svg"
-                    alt=""
-                    width={20}
-                    height={20}
-                  />
-                  <p>+880 1670 228 961</p>
-                </div>
-                <div>
-                  <Image
-                    src="/assets/images/mail-icon.svg"
-                    alt=""
-                    width={20}
-                    height={20}
-                  />
-                  <p>info@cistechltd.net</p>
-                </div>
-              </div>
+              <OfficeLocations />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom strip */}
       <div className="cis-footer__bottom">
         <div className="cis-footer__divider" />
         <div className="cis-footer__copyright container--padding">

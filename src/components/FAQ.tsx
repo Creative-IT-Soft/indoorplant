@@ -2,7 +2,6 @@
 import { ROUTES } from "@/utils/routes";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { Element } from "react-scroll";
 
 export default function FAQ() {
@@ -15,7 +14,7 @@ export default function FAQ() {
     {
       title: "Who can use this system?",
       content:
-        "The system is designed for everyone—from beginners and home gardeners to schools, community projects, and organizations. You don’t need expert gardening knowledge to use it, as the system simplifies plant care through automation and monitoring.",
+        "The system is designed for everyone—from beginners and home gardeners to schools, community projects, and organizations. You don't need expert gardening knowledge to use it, as the system simplifies plant care through automation and monitoring.",
     },
     {
       title: "How does indoor growing help plants grow better?",
@@ -34,170 +33,105 @@ export default function FAQ() {
     },
   ];
 
+  const supportChannels = [
+    {
+      cta: "Call us",
+      href: "tel:+8801670228961",
+      icon: "/assets/images/phone-icon.svg",
+    },
+    {
+      cta: "Chat now",
+      href: "https://wa.me/8801670228961",
+      icon: "/assets/images/whatsapp-icon.svg",
+    },
+  ] as const;
+
   return (
     <Element
       name={ROUTES.FAQ}
-      className="
-        flex md:flex-row flex-col justify-between gap-10
-        bg-[color:var(--bg)]
-        py-10 w-full
-        text-[color:var(--text)]
-        container--padding
-        overflow-hidden
-      "
+      className="section-shell bg-[color:var(--surface-2)] py-12 md:py-16"
     >
-      {/* LEFT */}
-      <div
-        className="faq--left flex flex-col justify-center items-start w-full md:w-[35%]"
-        data-aos="fade-right"
-        data-aos-duration="1000"
-      >
-        <h1 className="mb-8 font-bold text-[24px]">
-          Any questions? We’re here to help
-        </h1>
+      <div className="relative z-[1] container--padding">
+        <div className="mx-auto max-w-5xl">
+          <p className="section-eyebrow mb-4" data-aos="fade-up">
+            Support
+          </p>
 
-        <p className="mb-8 text-[14px] text-[color:var(--muted-text)]">
-          Still have questions or want to learn more about indoor growing? Reach
-          out to us anytime.
-        </p>
-
-        <div className="flex items-center gap-5 contact--section">
-          {/* Phone */}
-          <div
-            className="
-              flex flex-col gap-3
-              p-5 border rounded-lg phone
-              bg-[color:var(--surface)]
-              border-[color:var(--border)]
-            "
-          >
-            <div className="icon">
-              <Image
-                src="/assets/images/phone-icon.svg"
-                alt="phone"
-                width={30}
-                height={30}
-              />
-            </div>
-
-            <p className="font-medium text-[12px] text-[color:var(--muted-text)]">
-              Prefer to talk?
-            </p>
-
-            <Link
-              href=""
-              className="
-                flex items-center gap-1
-                font-semibold text-[12px]
-                text-[color:var(--footer-link)]
-                hover:opacity-90 transition
-              "
-            >
-              <span>Call us</span>
-              <Image
-                src="/assets/images/arrow-right-phone.svg"
-                alt="phone"
-                width={20}
-                height={10}
-              />
-            </Link>
-          </div>
-
-          {/* WhatsApp */}
-          <div
-            className="
-              flex flex-col gap-3
-              p-5 border rounded-lg whatsapp
-              bg-[color:var(--surface)]
-              border-[color:var(--border)]
-            "
-          >
-            <div className="icon">
-              <Image
-                src="/assets/images/whatsapp-icon.svg"
-                alt="whatsapp"
-                width={30}
-                height={30}
-              />
-            </div>
-
-            <p className="font-medium text-[12px] text-[color:var(--muted-text)]">
-              Want a quick answer?
-            </p>
-
-            <Link
-              href=""
-              className="
-                flex items-center gap-1
-                font-semibold text-[12px]
-                text-[color:var(--brand)]
-                hover:opacity-90 transition
-              "
-            >
-              <span>Chat now</span>
-              <Image
-                src="/assets/images/arrow-right-whatsapp.svg"
-                alt="whatsapp"
-                width={15}
-                height={8}
-              />
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* RIGHT */}
-      <div className="faq--right w-full md:w-[65%]">
-        {faqs.map((faq, index) => (
-          <div
-            className="
-              mb-5 p-5 rounded-lg
-              bg-[color:var(--surface)]
-              border border-[color:var(--border)]
-            "
-            key={faq.title}
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            data-aos-delay={index * 200}
-          >
-            <details className="group">
-              <summary
-                className="
-                  flex justify-between items-center
-                  font-medium cursor-pointer list-none
-                  text-[color:var(--text)]
-                "
+          <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between md:gap-8">
+            <div className="max-w-xl">
+              <h2
+                className="section-title section-title--gradient"
+                data-aos="fade-up"
+                data-aos-delay="50"
               >
-                <span>{faq.title}</span>
+                Questions? We&apos;re here to help
+              </h2>
+              <p
+                className="section-description mt-4"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                Reach out anytime — we&apos;re happy to walk you through indoor growing.
+              </p>
+            </div>
 
-                <span className="group-open:rotate-180 transition">
+            <div className="flex w-full shrink-0 flex-col gap-2.5 sm:flex-row sm:items-center md:w-auto">
+              {supportChannels.map((channel) => (
+                <Link
+                  key={channel.cta}
+                  href={channel.href}
+                  className="support-channel premium-panel group inline-flex h-10 w-full items-center justify-center gap-2.5 whitespace-nowrap rounded-full px-5 py-0 sm:w-auto sm:min-w-[9.5rem] md:min-w-[10.5rem] transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                  <span className="support-channel__icon flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface)]">
+                    <Image src={channel.icon} alt="" width={16} height={16} />
+                  </span>
+                  <span className="text-sm font-bold leading-none text-[color:var(--brand-dark)]">
+                    {channel.cta}
+                  </span>
                   <svg
+                    aria-hidden="true"
+                    className="shrink-0 opacity-60 transition group-hover:translate-x-0.5 group-hover:opacity-100"
                     fill="none"
-                    height={28}
-                    shapeRendering="geometricPrecision"
+                    height={13}
                     stroke="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                     viewBox="0 0 24 24"
-                    width={28}
-                    className="
-                      p-1 rounded-full
-                      bg-[color:var(--hover)]
-                      text-[color:var(--text)]
-                    "
+                    width={13}
                   >
-                    <path d="M6 9l6 6 6-6" />
+                    <path d="M5 12h14M13 5l7 7-7 7" />
                   </svg>
-                </span>
-              </summary>
-
-              <p className="mt-3 text-[color:var(--muted-text)] group-open:animate-fadeIn">
-                {faq.content}
-              </p>
-            </details>
+                </Link>
+              ))}
+            </div>
           </div>
-        ))}
+
+          <div className="mt-8 space-y-3 md:mt-10">
+            {faqs.map((faq, index) => (
+              <div
+                className="premium-panel rounded-xl px-4 py-3.5 md:px-5 md:py-4"
+                key={faq.title}
+                data-aos="fade-up"
+                data-aos-delay={index * 60}
+              >
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-[color:var(--text)] md:text-base">
+                    <span>{faq.title}</span>
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] transition group-open:rotate-180">
+                      <svg fill="none" height={16} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width={16}>
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-[color:var(--muted-text)]">
+                    {faq.content}
+                  </p>
+                </details>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </Element>
   );

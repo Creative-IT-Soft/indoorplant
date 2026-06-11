@@ -1,35 +1,22 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "@/assets/scss/globals.scss";
 import AOSProvider from "./AOSProvider";
 import "aos/dist/aos.css";
 import Script from "next/script";
 import ThemeProvider from "./ThemeProvider";
 
-const montserrat = localFont({
-  variable: "--font-montserrat",
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-body",
   display: "swap",
-  src: [
-    { path: "../assets/fonts/Montserrat/Montserrat-Thin.ttf", weight: "100", style: "normal" },
-    { path: "../assets/fonts/Montserrat/Montserrat-ExtraLight.ttf", weight: "200", style: "normal" },
-    { path: "../assets/fonts/Montserrat/Montserrat-Light.ttf", weight: "300", style: "normal" },
-    { path: "../assets/fonts/Montserrat/Montserrat-Regular.ttf", weight: "400", style: "normal" },
-    { path: "../assets/fonts/Montserrat/Montserrat-Medium.ttf", weight: "500", style: "normal" },
-    { path: "../assets/fonts/Montserrat/Montserrat-SemiBold.ttf", weight: "600", style: "normal" },
-    { path: "../assets/fonts/Montserrat/Montserrat-Bold.ttf", weight: "700", style: "normal" },
-    { path: "../assets/fonts/Montserrat/Montserrat-ExtraBold.ttf", weight: "800", style: "normal" },
-    { path: "../assets/fonts/Montserrat/Montserrat-Black.ttf", weight: "900", style: "normal" },
+});
 
-    { path: "../assets/fonts/Montserrat/Montserrat-ThinItalic.ttf", weight: "100", style: "italic" },
-    { path: "../assets/fonts/Montserrat/Montserrat-ExtraLightItalic.ttf", weight: "200", style: "italic" },
-    { path: "../assets/fonts/Montserrat/Montserrat-LightItalic.ttf", weight: "300", style: "italic" },
-    { path: "../assets/fonts/Montserrat/Montserrat-Italic.ttf", weight: "400", style: "italic" },
-    { path: "../assets/fonts/Montserrat/Montserrat-MediumItalic.ttf", weight: "500", style: "italic" },
-    { path: "../assets/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf", weight: "600", style: "italic" },
-    { path: "../assets/fonts/Montserrat/Montserrat-BoldItalic.ttf", weight: "700", style: "italic" },
-    { path: "../assets/fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf", weight: "800", style: "italic" },
-    { path: "../assets/fonts/Montserrat/Montserrat-BlackItalic.ttf", weight: "900", style: "italic" },
-  ],
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -41,7 +28,7 @@ export const metadata: Metadata = {
 const themeInitScript = `
 (function () {
   try {
-    var stored = localStorage.getItem('theme'); // 'light' | 'dark' | null
+    var stored = localStorage.getItem('theme');
     var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     var theme = stored ? stored : (prefersDark ? 'dark' : 'light');
     if (theme === 'dark') document.documentElement.classList.add('dark');
@@ -52,14 +39,18 @@ const themeInitScript = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={montserrat.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${manrope.variable} ${cormorant.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>
       </head>
 
-      <body className={montserrat.className}>
+      <body className={manrope.className}>
         <ThemeProvider>
           <AOSProvider>{children}</AOSProvider>
         </ThemeProvider>

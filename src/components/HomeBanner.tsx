@@ -1,11 +1,10 @@
 "use client";
 
 import { ROUTES } from "@/utils/routes";
-import React, { useEffect, useRef } from "react";
-import { Element } from "react-scroll";
+import { useEffect, useRef } from "react";
+import { Element, Link } from "react-scroll";
 
 export default function HomeBanner() {
-  const textureOpacity = 0.15;
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -13,7 +12,6 @@ export default function HomeBanner() {
     if (!video) return;
 
     const rate = 0.9;
-
     const applyRate = () => {
       video.defaultPlaybackRate = rate;
       video.playbackRate = rate;
@@ -32,115 +30,79 @@ export default function HomeBanner() {
   return (
     <Element
       name={ROUTES.HOME}
-      className="
-        relative flex flex-col md:flex-row
-        justify-between
-        bg-[#000000]
-        container--padding
-        overflow-hidden
-        pt-[56px] pb-[50px] md:pt-[72px] lg:pt-[84px]
-        min-h-[60svh]
-      "
+      className="hero-banner relative min-h-[100svh] overflow-hidden"
     >
-      {/* Texture Overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 z-[1]"
-        style={{
-          backgroundImage: "url('/assets/textures/texture.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          opacity: textureOpacity,
-        }}
-      />
+      <div className="hero-banner__texture" aria-hidden="true" />
+      <div className="hero-banner__overlay" aria-hidden="true" />
 
-      {/* LEFT CONTENT */}
-      <div
-        className="
-          relative z-[2]
-          w-full md:w-1/2
-          max-w-[640px]
-          py-10
-          md:py-0
-          md:self-center
-        "
-        data-aos="fade-up"
-        data-aos-duration="1500"
-      >
-        <h1
-          className="
-            font-black text-[#80ff8b]
-            text-[2.4rem] sm:text-[2.8rem] md:text-[3.4rem] lg:text-[4rem]
-            leading-[1.05]
-          "
-          data-aos="fade-up"
-          data-aos-duration="500"
-        >
-          Grow Calm. Grow Green. Indoors.
-        </h1>
+      <div className="relative z-[2] flex min-h-[100svh] flex-col lg:flex-row">
+        <div className="flex flex-1 items-center container--padding pb-10 pt-[84px] lg:max-w-[52%] lg:pb-16 lg:pt-[96px]">
+          <div className="hero-banner__content max-w-[640px]" data-aos="fade-up" data-aos-duration="900">
+            <p className="hero-banner__eyebrow">Indoor Smart Gardening</p>
 
-        <p
-          className="
-            mt-5 text-white
-            text-[1rem] md:text-[1.1rem] lg:text-[1.25rem]
-            leading-relaxed
-          "
-          data-aos="fade-up"
-          data-aos-duration="550"
-        >
-          Turn everyday moments into peaceful gardening rituals. Our Indoor Smart Gardening System lets you nurture thriving plants from the comfort of your home—bringing relaxation, fresh life, and a deeper connection to nature into your space.
-        </p>
+            <h1 className="hero-banner__title">
+              <span className="hero-banner__title-line">Grow Calm.</span>
+              <span className="hero-banner__title-accent">Grow Green.</span>
+              <span className="hero-banner__title-line">Indoors.</span>
+            </h1>
 
-        {/* ✅ RESPONSIVE BUTTON (no huge mobile) */}
-        <button
-          className="
-            quote explore--btn
-            mt-8 sm:mt-10
-            rounded-[6px]
-            font-semibold text-white
-            bg-[#828282]
-            tracking-[2px]
+            <p className="hero-banner__description">
+              Turn everyday moments into peaceful gardening rituals. Our Indoor
+              Smart Gardening System lets you nurture thriving plants from the
+              comfort of your home—bringing relaxation, fresh life, and a deeper
+              connection to nature into your space.
+            </p>
 
-            // sizing (mobile -> desktop)
-            w-full max-w-[190px]
-            sm:max-w-[240px]
-            md:max-w-[258px]
-            lg:max-w-[260px]
-            px-6 sm:px-10 md:px-12
-            py-3 sm:py-4
-            text-base sm:text-lg md:text-xl
-          "
-          data-aos="fade-up"
-          data-aos-duration="700"
-        >
-          Explore More
-        </button>
-      </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link
+                to={ROUTES.OVERVIEW}
+                smooth
+                duration={700}
+                offset={-84}
+                className="btn-primary quote w-full sm:w-auto"
+              >
+                Explore More
+              </Link>
+              <Link
+                to={ROUTES.FEATURES}
+                smooth
+                duration={700}
+                offset={-84}
+                className="hero-banner__cta-secondary w-full sm:w-auto"
+              >
+                See How It Works
+              </Link>
+            </div>
+          </div>
+        </div>
 
-      {/* RIGHT VIDEO */}
-      <div
-        className="
-          relative z-[2]
-          w-full md:w-1/2
-          mt-6 md:mt-0
-          md:self-stretch
-          min-h-[320px]
-          md:min-h-[calc(100svh-72px)]
-          lg:min-h-[calc(100svh-84px)]
-        "
-      >
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster="/assets/images/hero-poster.jpg"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/assets/videos/render.webm" type="video/webm" />
-        </video>
+        <div className="relative flex flex-1 items-end justify-center lg:items-center lg:justify-end">
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 hidden w-40 bg-gradient-to-r from-[#040806] to-transparent lg:block"
+            aria-hidden="true"
+          />
+
+          <div
+            className="relative h-[42svh] w-full sm:h-[48svh] lg:h-full lg:min-h-[100svh] lg:w-[min(100%,760px)]"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(74,222,128,0.22),transparent_55%)]" />
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster="/assets/images/hero-poster.jpg"
+              className="h-full w-full object-cover object-[center_35%] lg:object-center"
+            >
+              <source src="/assets/videos/render.webm" type="video/webm" />
+            </video>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#040806] to-transparent lg:hidden" />
+          </div>
+        </div>
       </div>
     </Element>
   );

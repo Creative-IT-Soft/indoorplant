@@ -1,5 +1,6 @@
 "use client";
 
+import SectionHeading from "@/components/SectionHeading";
 import { ROUTES } from "@/utils/routes";
 import Image from "next/image";
 import { useRef } from "react";
@@ -16,9 +17,9 @@ export default function Benefits() {
       image: "/assets/images/cinematic/10.webp",
     },
     {
-      title: "Manual Water & Lighting control",
+      title: "Manual Water & Lighting Control",
       subtitle:
-        "Controlling lighting and water  delivery helps avoid overwatering or dryness with consistent light, ensuring plants receive consistent care every day with less manual effort.",
+        "Consistent light and water delivery helps avoid overwatering or dryness, ensuring plants receive reliable care every day with less manual effort.",
       image: "/assets/images/cinematic/1.webp",
     },
     {
@@ -41,181 +42,85 @@ export default function Benefits() {
     },
   ];
 
-  const scrollLeft = () => {
-    scrollContainerRef.current?.scrollBy({ left: -340, behavior: "smooth" });
-  };
-
-  const scrollRight = () => {
-    scrollContainerRef.current?.scrollBy({ left: 340, behavior: "smooth" });
+  const scrollBy = (direction: "left" | "right") => {
+    scrollContainerRef.current?.scrollBy({
+      left: direction === "left" ? -360 : 360,
+      behavior: "smooth",
+    });
   };
 
   return (
     <Element
       name={ROUTES.BENEFITS}
-      className="
-        bg-[color:var(--surface-2)]
-        container--padding
-        py-16 sm:py-20 lg:py-28
-        overflow-hidden
-        text-[color:var(--text)]
-      "
+      className="section-shell bg-[color:var(--bg)] py-20 md:py-28"
     >
-      <div
-        className="
-          flex flex-col lg:flex-row
-          gap-0 lg:gap-0
-          items-start lg:items-center
-          justify-between
-        "
-      >
-        {/* Left Section */}
-        <div
-          className="
-            w-full lg:w-[34%]
-            flex flex-col
-            justify-center items-start
-            pb-10
-          "
-          data-aos="fade-up"
-          data-aos-duration="1500"
-        >
-          <h1
-            className="
-              font-bold uppercase text-[color:var(--text)]
-              text-2xl sm:text-3xl md:text-4xl lg:text-[48px]
-              leading-normal lg:leading-snug
-              mb-6
-              max-w-[520px]
-            "
-          >
-            Explore the Benefits of Indoor Growing
-          </h1>
+      <div className="relative z-[1] container--padding">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            eyebrow="Benefits"
+            title="Explore the benefits of indoor growing"
+            description="From climate control to modular scaling, every detail is designed to help young plants thrive indoors."
+            className="max-w-2xl"
+          />
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <button
-              onClick={scrollLeft}
+              onClick={() => scrollBy("left")}
               aria-label="Scroll left"
-              className="
-                h-10 w-10 sm:h-11 sm:w-11
-                flex items-center justify-center
-                border rounded-full
-                border-[color:var(--border)]
-                bg-[color:var(--surface)]
-                hover:bg-[color:var(--hover)]
-                transition
-              "
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] transition hover:bg-[color:var(--hover)]"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-5 h-5 text-[color:var(--text)]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 19.5L8.25 12l7.5-7.5"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
               </svg>
             </button>
-
             <button
-              onClick={scrollRight}
+              onClick={() => scrollBy("right")}
               aria-label="Scroll right"
-              className="
-                h-10 w-10 sm:h-11 sm:w-11
-                flex items-center justify-center
-                border rounded-full
-                border-[color:var(--border)]
-                bg-[color:var(--surface)]
-                hover:bg-[color:var(--hover)]
-                transition
-              "
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] transition hover:bg-[color:var(--hover)]"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-5 h-5 text-[color:var(--text)]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
             </button>
           </div>
         </div>
 
-        {/* Right Section (scrollable carousel) */}
         <div
           ref={scrollContainerRef}
-          className="
-            w-full lg:w-[66%]
-            flex gap-6
-            overflow-x-auto
-            overflow-y-hidden
-            scroll-smooth
-            pr-2
-            hide-scrollbar
-            snap-x snap-mandatory
-          "
-          data-aos="fade-left"
-          data-aos-duration="1500"
+          className="hide-scrollbar mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2"
         >
           {benefits.map((benefit, index) => (
-            <div
-              key={index}
-              className="
-                snap-start
-                flex-shrink-0
-                bg-[color:var(--surface)]
-                hover:bg-[color:var(--hover)]
-                border border-[color:var(--border)]
-                rounded-lg
-                shadow-md hover:shadow-lg
-                transition
-                w-[240px] sm:w-[280px] md:w-[320px] lg:w-[320px]
-              "
+            <article
+              key={benefit.title}
+              className="premium-panel group w-[280px] flex-shrink-0 snap-start overflow-hidden rounded-[1.5rem] sm:w-[320px]"
+              data-aos="fade-up"
+              data-aos-delay={index * 80}
             >
-              {/* Image */}
-              <div className="relative h-[160px] sm:h-[180px] overflow-hidden rounded-t-lg">
+              <div className="relative h-[200px] overflow-hidden">
                 <Image
                   src={benefit.image}
                   alt={benefit.title}
                   fill
-                  className="object-cover transition-transform duration-300 hover:scale-110"
+                  className="object-cover transition duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/50 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <h2 className="text-white font-bold text-center text-base sm:text-lg px-2">
-                    {benefit.title}
-                  </h2>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-4 text-center">
-                <h3 className="text--primary--linear font-bold text-sm sm:text-base">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <h3 className="absolute bottom-4 left-4 right-4 text-lg font-bold text-white">
                   {benefit.title}
                 </h3>
-                <p className="text-[color:var(--muted-text)] text-xs sm:text-sm leading-relaxed mt-1">
+              </div>
+              <div className="p-5">
+                <p className="text-sm leading-relaxed text-[color:var(--muted-text)]">
                   {benefit.subtitle}
                 </p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
-      </div>
 
-      {/* Mobile hint */}
-      <p className="mt-6 text-center text-xs text-[color:var(--muted-text)] lg:hidden">
-        Swipe left or right
-      </p>
+        <p className="mt-6 text-center text-xs text-[color:var(--muted-text)] lg:hidden">
+          Swipe left or right
+        </p>
+      </div>
     </Element>
   );
 }

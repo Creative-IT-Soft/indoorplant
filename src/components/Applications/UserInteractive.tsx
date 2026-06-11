@@ -5,92 +5,31 @@ import BlurredImage from "../BlurredImage";
 
 export default function UserInteractive() {
   return (
-    <section className="bg-[color:var(--bg)] text-[color:var(--text)] overflow-hidden">
-      <div
-        className="
-          container--padding
-          py-10 sm:py-14 lg:py-16
-          grid grid-cols-1 lg:grid-cols-2
-          items-center
-          gap-0 lg:gap-0
-        "
-      >
-        {/* IMAGE */}
-        <div
-          className="min-w-0 w-full flex justify-center lg:justify-center"
-          data-aos="fade-right"
-          data-aos-duration="700"
-        >
-          <div
-            className="
-              w-full max-w-full
-              sm:max-w-[560px]
-              md:max-w-[640px]
-              lg:max-w-[520px]
-              xl:max-w-[680px]
-              transition-transform duration-300 ease-in-out
-              hover:scale-[1.02] md:hover:scale-[1.05]
-            "
-          >
+    <section className="bg-[color:var(--surface-2)] py-16 md:py-24">
+      <div className="container--padding">
+        <div className="premium-panel grid items-center gap-10 p-6 md:grid-cols-2 md:gap-12 md:p-10 lg:p-12">
+          <div className="order-2 md:order-1" data-aos="fade-right" data-aos-duration="700">
             <BlurredImage
               backgroundImage="/assets/images/Wood Ash.png"
               src="/assets/images/Wood Ash.png"
-              alt="Consistent Growth & Monitoring"
+              alt="Consistent Growth and Monitoring"
               width={1400}
               height={1400}
-              imageClassName="rounded-2xl"
+              imageClassName="rounded-[1.5rem]"
             />
           </div>
-        </div>
 
-        {/* TEXT */}
-        <div className="min-w-0 w-full">
-          <div className="max-w-[680px]">
-            <h2
-              className="
-                mb-4 sm:mb-6 lg:mb-8
-                font-bold uppercase
-                text-[color:var(--text)]
-                text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-                leading-tight
-              "
-              data-aos="fade-left"
-              data-aos-duration="700"
-            >
+          <div className="order-1 max-w-xl md:order-2">
+            <span className="feature-index mb-6">02</span>
+            <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-[color:var(--text)] md:text-4xl lg:text-5xl">
               Consistent Growth &amp; Monitoring
             </h2>
-
-            <p
-              className="
-                mb-6 sm:mb-8 lg:mb-10
-                font-semibold
-                text-[color:var(--muted-text)]
-                text-sm sm:text-base md:text-lg
-                text-justify
-                leading-relaxed
-              "
-              data-aos="fade-left"
-              data-aos-duration="700"
-            >
+            <p className="mt-5 text-base leading-relaxed text-[color:var(--muted-text)] md:text-lg">
               Plants are monitored continuously so early signs of stress,
-              imbalance, or disease can be detected quickly. This allows timely
-              action and prevents problems from spreading.
+              imbalance, or disease can be detected quickly—allowing timely action
+              before problems spread.
             </p>
-
-            <button
-              className="
-                quote
-                rounded-md
-                font-semibold
-                w-full sm:w-auto
-                px-5 sm:px-7 md:px-8
-                py-2 sm:py-2.5 md:py-3
-                text-sm sm:text-base md:text-lg
-                max-w-[130px] sm:max-w-none
-              "
-              data-aos="fade-left"
-              data-aos-duration="700"
-            >
+            <button className="btn-primary quote mt-8 px-6 py-3 text-sm md:text-base">
               Learn More
             </button>
           </div>
