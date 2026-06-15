@@ -4,7 +4,7 @@ import React from "react";
 
 export default function CallForAction() {
   return (
-    <section className="section-shell bg-[color:var(--bg)] py-20 md:py-28">
+    <section className="section-shell bg-[color:var(--surface-2)] py-20 md:py-28">
       <div className="relative z-[1] container--padding">
         <div className="premium-panel grid items-center gap-10 p-6 md:grid-cols-2 md:gap-12 md:p-10 lg:p-12">
           <div className="order-2 md:order-1" data-aos="fade-up">

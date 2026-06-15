@@ -22,7 +22,7 @@ export default function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 className="section-title section-title--gradient" data-aos="fade-up" data-aos-delay="50">
+      <h2 className="section-title section-title--gradient pb-1" data-aos="fade-up" data-aos-delay="50">
         {title}
       </h2>
       {description && (

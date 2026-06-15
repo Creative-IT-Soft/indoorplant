@@ -52,7 +52,7 @@ export default function Benefits() {
   return (
     <Element
       name={ROUTES.BENEFITS}
-      className="section-shell bg-[color:var(--bg)] py-20 md:py-28"
+      className="section-shell bg-[color:var(--surface-2)] py-20 md:py-28"
     >
       <div className="relative z-[1] container--padding">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">

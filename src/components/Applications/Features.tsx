@@ -11,7 +11,7 @@ export default function Features() {
     <>
       <Element
         name={ROUTES.FEATURES}
-        className="section-shell bg-[color:var(--bg)] py-16 md:py-24"
+        className="section-shell bg-[color:var(--surface-2)] py-16 md:py-24"
       >
         <div className="relative z-[1] container--padding">
           <SectionHeading
@@ -22,7 +22,7 @@ export default function Features() {
         </div>
       </Element>
 
-      <section className="bg-[color:var(--bg)] pb-16 md:pb-24">
+      <section className="bg-[color:var(--surface-2)] pb-16 md:pb-24">
         <div className="container--padding">
           <div className="premium-panel grid items-center gap-10 p-6 md:grid-cols-2 md:gap-12 md:p-10 lg:p-12">
             <div className="max-w-xl">

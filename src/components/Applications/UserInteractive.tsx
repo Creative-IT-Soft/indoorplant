@@ -5,7 +5,7 @@ import BlurredImage from "../BlurredImage";
 
 export default function UserInteractive() {
   return (
-    <section className="bg-[color:var(--surface-2)] py-16 md:py-24">
+    <section className="bg-[color:var(--surface-3)] py-16 md:py-24">
       <div className="container--padding">
         <div className="premium-panel grid items-center gap-10 p-6 md:grid-cols-2 md:gap-12 md:p-10 lg:p-12">
           <div className="order-2 md:order-1" data-aos="fade-right" data-aos-duration="700">

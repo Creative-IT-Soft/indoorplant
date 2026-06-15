@@ -8,10 +8,10 @@ export default function IntroBanner() {
   return (
     <Element
       name={ROUTES.OVERVIEW}
-      className="section-shell bg-[color:var(--surface-2)] py-20 md:py-28"
+      className="section-shell bg-[color:var(--surface-3)] py-20 md:py-28"
     >
       <div className="relative z-[1] container--padding">
-        <div className="mx-auto flex max-w-6xl flex-col items-center text-center">
+        <div className="mx-auto flex max-w-6xl flex-col items-center text-center pb-5">
           <SectionHeading
             align="center"
             eyebrow="Overview"

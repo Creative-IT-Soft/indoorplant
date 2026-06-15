@@ -23,7 +23,7 @@ export default function SeedSection() {
   return (
     <Element
       name={ROUTES.SEEDS}
-      className="section-shell bg-[color:var(--surface-2)] py-20 md:py-28"
+      className="section-shell bg-[color:var(--surface-3)] py-20 md:py-28"
     >
       <div className="relative z-[1] container--padding">
         <SectionHeading

@@ -17,8 +17,8 @@
   --muted-text: rgba(20, 38, 28, 0.62);
 
   --surface: #ffffff;
-  --surface-2: #f3f0e8;
-  --surface-3: #ebe6da;
+  --surface-2: #f6eed9;
+  --surface-3: #efe8d3;
   --header-bg: #faf8f4;
   --surface-4: #ede8dc;
   --surface-5: #ffffff;
@@ -43,7 +43,7 @@
     rgba(8, 14, 11, 0.1) 100%
   );
 
-  --card-bg: rgba(255, 255, 255, 0.82);
+  --card-bg: rgba(249, 239, 224, 0.9);
   --card-border: rgba(196, 169, 98, 0.18);
   --card-shadow: 0 28px 64px rgba(20, 38, 28, 0.08);
 
@@ -722,7 +722,7 @@ html.dark .text--primary--linear {
     180deg,
     transparent 0%,
     transparent 58%,
-    color-mix(in srgb, var(--footer-video-bg) 88%, var(--surface-5) 12%) 100%
+    color-mix(in srgb, var(--footer-video-bg) 88%, var(--surface-3) 12%) 100%
   );
 }
 
@@ -1091,7 +1091,7 @@ html.dark .cis-footer__socialIcon {
   margin: 0 0 0.25rem;
   font-size: 0.95rem;
   font-weight: 700;
-  color: #e68c57;
+  color: #1fc25c;
 }
 
 .cis-office__item:last-child .cis-office__divider {
@@ -1145,7 +1145,7 @@ html.dark .cis-footer__socialIcon {
 }
 
 .cis-office__label {
-  color: #e68c57;
+  color: #1fc25c;
   font-weight: 600;
 }
 
@@ -1292,4 +1292,16 @@ html.dark .cis-office__detail a:hover {
 .plant-carousel__bullet--active {
   width: 32px;
   background: var(--brand);
+}
+
+/* Add this class to your CSS file */
+.cis-footer__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(249, 239, 224, 0.9);
+  z-index: 1; /* Adjust if it covers your text, ensure text containers have higher z-index */
+  pointer-events: none; /* Makes sure it doesn't block clicks */
 }

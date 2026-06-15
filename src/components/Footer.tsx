@@ -23,11 +23,20 @@ export default function Footer() {
     : "/assets/videos/plantWhite.mp4";
 
   return (
-    <footer className={`cis-footer ${isDark ? "cis-footer--dark" : "cis-footer--light"}`}>
-      <div className="cis-footer__sky" aria-hidden="true" />
-      <div className="cis-footer__blend" aria-hidden="true" />
+    <footer 
+      className={`cis-footer ${isDark ? "cis-footer--dark" : "cis-footer--light"}`}
+      style={{ 
+        position: 'relative',
+        // This injects the overlay directly as a background layer on the footer itself
+        backgroundImage: 'linear-gradient(rgba(235, 218, 194, 0.9), rgba(235, 218, 194, 0.9))',
+      }}
+    >
+      {/* Background Elements */}
+      <div className="cis-footer__sky" aria-hidden="true" style={{ zIndex: -2 }} />
+      <div className="cis-footer__blend" aria-hidden="true" style={{ zIndex: -1 }} />
 
-      <div className="cis-footer__stage">
+      {/* Main Content Stage */}
+      <div className="cis-footer__stage" style={{ position: 'relative', zIndex: 1 }}>
         <div className="cis-footer__plant-backdrop" aria-hidden="true" />
 
         <div className="cis-footer__plant" aria-hidden="true">
@@ -75,7 +84,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="cis-footer__bottom">
+      {/* Bottom Copyright Section */}
+      <div className="cis-footer__bottom" style={{ position: 'relative', zIndex: 1 }}>
         <div className="cis-footer__divider" />
         <div className="cis-footer__copyright container--padding">
           <p>© CIS Tech Ltd {new Date().getFullYear()} All rights reserved</p>
