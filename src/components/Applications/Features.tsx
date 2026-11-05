@@ -17,7 +17,7 @@ export default function Features() {
           <SectionHeading
             eyebrow="Capabilities"
             title="What does the system do?"
-            description="Automated care, continuous monitoring, and clear feedback—designed to make indoor growing reliable from day one."
+            description="Smart care, continuous monitoring, and clear feedback—designed to make indoor growing reliable from day one."
           />
         </div>
       </Element>
@@ -28,12 +28,12 @@ export default function Features() {
             <div className="max-w-xl">
               <span className="feature-index mb-6">01</span>
               <h2 className="section-title text-[color:var(--text)] md:text-4xl lg:text-5xl">
-                Automated Plant Care
+                Smart Plant Care
               </h2>
               <p className="mt-5 text-base leading-relaxed text-[color:var(--muted-text)] md:text-lg">
-                The system automatically manages essential growing conditions such
-                as temperature, lighting, watering, and nutrients. Plants receive
-                balanced care every day, without guesswork.
+                Temperature, lighting, watering, and nutrients are adjusted as
+                each plant&apos;s needs change. Care stays balanced every day,
+                without guesswork.
               </p>
               <button className="btn-primary quote mt-8 px-6 py-3 text-sm md:text-base">
                 Learn More
@@ -44,7 +44,7 @@ export default function Features() {
               <BlurredImage
                 backgroundImage="/assets/images/graphite.png"
                 src="/assets/images/mintgreen.png"
-                alt="Automated Plant Care"
+                alt="Smart Plant Care"
                 width={2000}
                 height={2000}
                 imageClassName="rounded-[1.5rem]"
