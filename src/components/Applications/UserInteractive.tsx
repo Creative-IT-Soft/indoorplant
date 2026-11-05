@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import BlurredImage from "../BlurredImage";
 
 export default function UserInteractive() {
   return (
@@ -9,14 +8,17 @@ export default function UserInteractive() {
       <div className="container--padding">
         <div className="premium-panel grid items-center gap-10 p-6 md:grid-cols-2 md:gap-12 md:p-10 lg:p-12">
           <div className="order-2 md:order-1" data-aos="fade-right" data-aos-duration="700">
-            <BlurredImage
-              backgroundImage="/assets/images/Wood Ash.png"
-              src="/assets/images/Wood Ash.png"
-              alt="Consistent Growth and Monitoring"
-              width={1400}
-              height={1400}
-              imageClassName="rounded-[1.5rem]"
-            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-label="Consistent Growth and Monitoring"
+              className="aspect-[4/3] w-full rounded-[1.5rem] object-cover"
+            >
+              <source src="/assets/videos/Wood Ash.mp4" type="video/mp4" />
+            </video>
           </div>
 
           <div className="order-1 max-w-xl md:order-2">
