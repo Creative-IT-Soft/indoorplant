@@ -33,7 +33,7 @@ export default function CallForAction() {
                 preload="metadata"
                 className="aspect-[4/3] w-full object-cover"
               >
-                <source src="/assets/videos/hero.webm" type="video/webm" />
+                <source src="/assets/videos/hero.mp4" type="video/mp4" />
               </video>
             </div>
           </div>

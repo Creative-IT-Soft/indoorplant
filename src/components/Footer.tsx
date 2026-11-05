@@ -59,7 +59,7 @@ export default function Footer() {
               <ul className="cis-footer__social">
                 {socialMenu.map((item, i) => (
                   <li key={i}>
-                    <Link href={item.href}>
+                    <Link href={item.href} target="_blank" rel="noopener noreferrer">
                       <Image
                         className="cis-footer__socialIcon"
                         src={`/assets/images/${item.icon}.svg`}

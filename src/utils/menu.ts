@@ -30,23 +30,23 @@ export const headerMenu = [
 export const socialMenu = [
     {
       title: "Facebook",
-      href: "https://www.facebook.com/profile.php?id=61561639496236",
+      href: "https://www.facebook.com/cistechltd",
       icon: "facebook",
     },
     {
       title: "YouTube",
-      href: "https://www.youtube.com",
+      href: "https://www.youtube.com/channel/UCzyNgALdKr39o_ZiulQZ63g",
       icon: "youtube",
     },
     {
       title: "X",
-      href: "https://x.com/thecopechurch/status/1817190144023110018",
+      href: "https://x.com/cis_tech_ltd",
       icon: "twitter",
     },
     {
-      title: "Instagram",
-      href: "https://www.instagram.com/thecopechurch/",
-      icon: "instagram",
+      title: "LinkedIn",
+      href: "https://www.linkedin.com/company/cis-tech-ltd",
+      icon: "linkedin",
     },
   ];
   
