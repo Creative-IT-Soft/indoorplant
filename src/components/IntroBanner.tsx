@@ -20,17 +20,22 @@ export default function IntroBanner() {
           />
 
           <div
-            className="premium-panel relative mt-12 w-full p-4 md:p-6"
+            className="premium-panel relative mt-12 w-full max-w-[928px] p-4 md:p-6"
             data-aos="fade-up"
             data-aos-delay="150"
           >
             <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--gold)] to-transparent opacity-80" />
-            <img
-              src="/assets/images/plant-system.png"
-              alt="Indoor Smart Gardening System"
-              className="mx-auto w-full max-w-[880px] object-contain select-none"
-              draggable={false}
-            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-label="Indoor Smart Gardening System"
+              className="block w-full object-contain select-none"
+            >
+              <source src="/assets/videos/plant-system.webm" type="video/webm" />
+            </video>
           </div>
 
           <div className="mt-10 grid w-full max-w-4xl gap-4 md:grid-cols-3">
